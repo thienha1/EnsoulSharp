@@ -257,6 +257,10 @@ namespace PerfectDarius
 
         internal static bool CanQ(AIBaseClient unit)
         {
+            if (unit == null)
+            {
+                return false;
+            }
             if (!unit.IsValidTarget() || unit.IsZombie ||
                 TargetSelector.GetTarget(Lib.Spellbook["Q"].Range).IsInvulnerable)
             {
