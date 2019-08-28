@@ -337,7 +337,7 @@ namespace PerfectDarius
                 {
                     return;
                 }
-                if (CanQ(qtarget) && !Lib.Player.InAutoAttackRange(190))
+                if (CanQ(qtarget) && !qtarget.InAutoAttackRange(Lib.Player.GetRealAutoAttackRange()))
                 {
                     Lib.Spellbook["Q"].Cast();
                 }
