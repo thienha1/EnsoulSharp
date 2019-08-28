@@ -276,11 +276,6 @@ namespace PerfectDarius
                 return false;
             }
 
-            if (Lib.Player.InAutoAttackRange(190))
-            {
-                return false;
-            }
-
             if (Lib.Spellbook["R"].IsReady() &&
                 Lib.Player.Mana - Lib.Spellbook["Q"].Mana < Lib.Spellbook["R"].Mana)
             {
@@ -337,12 +332,12 @@ namespace PerfectDarius
         {
             if (useq && Lib.Spellbook["Q"].IsReady())
             {
-                var qtarget = TargetSelector.GetTarget(Lib.Spellbook["E"].Range, DamageType.Physical);
+                var qtarget = TargetSelector.GetTarget(Lib.Spellbook["Q"].Range, DamageType.Physical);
                 if (qtarget == null)
                 {
                     return;
                 }
-                if (CanQ(qtarget))
+                if (CanQ(qtarget) && !Lib.Player.InAutoAttackRange(190))
                 {
                     Lib.Spellbook["Q"].Cast();
                 }
