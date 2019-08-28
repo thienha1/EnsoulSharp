@@ -274,6 +274,12 @@ namespace PerfectDarius
             {
                 return false;
             }
+
+            if (Lib.Spellbook["W"].IsReady() || Lib.Spellbook["E"].IsReady())
+            {
+                return false;
+            }
+
             if (Lib.Player.Distance(unit.PreviousPosition) < 175 ||
                 Variables.GameTimeTickCount - LastGrabTimeStamp < 350)
             {
