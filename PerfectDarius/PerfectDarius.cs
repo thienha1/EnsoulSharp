@@ -118,6 +118,7 @@ namespace PerfectDarius
             if (Lib.Spellbook["E"].IsReady()  && Config["rmenu"].GetValue<MenuBool>("tpcancel").Enabled )
             {
                 var etarget = TargetSelector.GetTarget(Lib.Spellbook["E"].Range);
+                if (etarget == null) return;
                 if (etarget.IsValidTarget() && etarget.HasBuff("Teleport"))
                 {
                     if (etarget.Distance(Lib.Player.PreviousPosition) > 250)
@@ -130,6 +131,7 @@ namespace PerfectDarius
             if(IgniteSlot.IsReady() && Config["rmenu"].GetValue<MenuBool>("useIgn").Enabled)
             {
                 var igtarget = TargetSelector.GetTarget(Lib.Player.GetRealAutoAttackRange(), DamageType.True);
+                if (igtarget == null) return;
                 var Ignitedmg = Damage.GetSummonerSpellDamage(ObjectManager.Player, igtarget, SummonerSpell.Ignite);
                 if(igtarget.Health < Ignitedmg)
                 {
@@ -141,6 +143,7 @@ namespace PerfectDarius
             {
                 foreach (var unit in GameObjects.EnemyHeroes.Where(ene => ene.IsValidTarget(Lib.Spellbook["R"].Range) && !ene.IsZombie))
                 {
+                    if (unit == null) return;
                     if (unit.CountEnemyHeroesInRange(1200) <= 1 && Config["rmenu"].GetValue<MenuBool>("ksr1").Enabled)
                     {
                         if (Lib.RDmg(unit, PassiveCount(unit)) + RModifier + 
@@ -273,7 +276,7 @@ namespace PerfectDarius
                 return false;
             }
 
-            if (Lib.Player.InAutoAttackRange(125))
+            if (Lib.Player.InAutoAttackRange(190))
             {
                 return false;
             }
