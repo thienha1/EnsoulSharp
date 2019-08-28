@@ -593,7 +593,7 @@ namespace PerfectDarius
             return
                 (float)
                     Player.CalculateDamage(unit, DamageType.Physical,
-                       Player.TotalAttackDamage + (0.4 * Player.TotalAttackDamage));
+                       Player.TotalAttackDamage + (0.42 * Player.TotalAttackDamage));
         }
 
         internal static float RDmg(AIBaseClient unit, int stackcount)
@@ -613,7 +613,7 @@ namespace PerfectDarius
             return
                 (float)
                     Player.CalculateDamage(unit, DamageType.Physical,
-                        (12 + Player.Level) + (0.3 * Player.FlatPhysicalDamageMod)) * stackcount;
+                        (13 + Player.Level) + (0.3 * Player.FlatPhysicalDamageMod)) * stackcount;
         }
     }
 }
