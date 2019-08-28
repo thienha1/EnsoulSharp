@@ -2,13 +2,11 @@
 using System.Linq;
 using EnsoulSharp;
 using EnsoulSharp.SDK;
-using EnsoulSharp.SDK.MenuUI;
 using EnsoulSharp.SDK.MenuUI.Values;
 using EnsoulSharp.SDK.Utility;
 using System.Windows.Forms;
 using SharpDX;
 using Color = System.Drawing.Color;
-using static EnsoulSharp.SDK.Utility.Render;
 using Lib = PerfectDarius.PerfectLib;
 using Menu = EnsoulSharp.SDK.MenuUI.Menu;
 
@@ -113,6 +111,10 @@ namespace PerfectDarius
         }
         internal static void Game_OnUpdate(EventArgs args)
         {
+            if (ObjectManager.Player.IsDead)
+            {
+                return;
+            }
             if (Lib.Spellbook["E"].IsReady()  && Config["rmenu"].GetValue<MenuBool>("tpcancel").Enabled )
             {
                 var etarget = TargetSelector.GetTarget(Lib.Spellbook["E"].Range);
