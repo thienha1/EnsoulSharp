@@ -468,7 +468,7 @@ namespace PerfectDarius
 
         internal static void Menu_OnLoad()
         {
-            Config = new Menu("Perfect Darius", "darius", true);
+            Config = new Menu("darius","Perfect Darius", true);
 
             var cmenu = new Menu("Combo Settings", "cmenu");
             cmenu.Add(new MenuBool("useq", "Use Q in Combo"));
@@ -513,7 +513,7 @@ namespace PerfectDarius
 
             
 
-            var drmenu = new Menu("Draw Settings", "drawings");
+            var drmenu = new Menu("drawings","Draw Settings");
             drmenu.Add(new MenuBool("drawq", "Draw Q")).SetValue(true);
             drmenu.Add(new MenuBool("drawe", "Draw E")).SetValue(true);
             drmenu.Add(new MenuBool("drawr", "Draw R")).SetValue(true);
