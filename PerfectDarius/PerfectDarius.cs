@@ -270,6 +270,10 @@ namespace PerfectDarius
                 return false;
             }
 
+            if (unit.InAutoAttackRange())
+            {
+                return false;
+            }
             if (Lib.Player.Distance(unit.PreviousPosition) < 175 ||
                 Variables.GameTimeTickCount - LastGrabTimeStamp < 350)
             {
@@ -337,7 +341,7 @@ namespace PerfectDarius
                 {
                     return;
                 }
-                if (CanQ(qtarget) && !qtarget.InAutoAttackRange(Lib.Player.GetRealAutoAttackRange()))
+                if (CanQ(qtarget))
                 {
                     Lib.Spellbook["Q"].Cast();
                 }
