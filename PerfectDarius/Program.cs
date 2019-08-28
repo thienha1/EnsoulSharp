@@ -1,5 +1,5 @@
 ﻿using System;
-using EnsoulSharp;
+using EnsoulSharp.SDK;
 
 namespace PerfectDarius
 {
@@ -7,10 +7,10 @@ namespace PerfectDarius
     {
         static void Main(string[] args)
         {
-            Game.OnUpdate += Game_OnGameLoad;
+            GameEvent.OnGameLoad += Game_OnGameLoad;
         }
 
-        static void Game_OnGameLoad(EventArgs args)
+        static void Game_OnGameLoad()
         {
             new PerfectDarius();
         }
