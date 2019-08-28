@@ -470,7 +470,7 @@ namespace PerfectDarius
         {
             Config = new Menu("darius","Perfect Darius", true);
 
-            var cmenu = new Menu("Combo Settings", "cmenu");
+            var cmenu = new Menu("cmenu", "Combo Settings");
             cmenu.Add(new MenuBool("useq", "Use Q in Combo"));
             cmenu.Add(new MenuBool("usee", "Use E in Combo")).SetValue(true);
             cmenu.Add(new MenuKeyBind("caste", "Use E to Assist", Keys.T, KeyBindType.Press));
@@ -494,12 +494,12 @@ namespace PerfectDarius
             Config.Add(lastmenu);
 
 
-            var amenu = new Menu("Activator", "amenu");
+            var amenu = new Menu("amenu", "Activator");
             amenu.Add(new MenuBool("useIgn", "Use Ignite")).SetValue(true);
             amenu.Add(new MenuBool("iiii", "Use Hydra")).SetValue(true);
             Config.Add(amenu);
 
-            var rmenu = new Menu("More Settings", "rmenu");
+            var rmenu = new Menu("rmenu", "More Settings");
             
             rmenu.Add(new MenuBool("useeint", "Interrupt Spells with E")).SetValue(true);
             rmenu.Add(new MenuBool("tpcancel", "E to Cancel the Enemy's TP")).SetValue(true);
@@ -513,7 +513,7 @@ namespace PerfectDarius
 
             
 
-            var drmenu = new Menu("drawings","Draw Settings");
+            var drmenu = new Menu("drawings", "Draw Settings");
             drmenu.Add(new MenuBool("drawq", "Draw Q")).SetValue(true);
             drmenu.Add(new MenuBool("drawe", "Draw E")).SetValue(true);
             drmenu.Add(new MenuBool("drawr", "Draw R")).SetValue(true);
