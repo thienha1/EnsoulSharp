@@ -211,11 +211,6 @@ namespace PerfectDarius
             if (qcircle.Enabled)
                 Render.Circle.DrawCircle(Lib.Player.Position, Lib.Spellbook["Q"].Range, Color.Red, 3);
 
-            if (!Config["drawings"].GetValue<MenuBool>("drawstack").Enabled)
-            {
-                return;
-            }
-
             var plaz = Drawing.WorldToScreen(Lib.Player.Position);
             if (Lib.Player.GetBuffCount("dariusexecutemulticast") > 0)
             {
