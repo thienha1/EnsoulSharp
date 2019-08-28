@@ -269,6 +269,11 @@ namespace PerfectDarius
                 return false;
             }
 
+            if (Lib.Player.InAutoAttackRange(125))
+            {
+                return false;
+            }
+
             if (Lib.Spellbook["R"].IsReady() &&
                 Lib.Player.Mana - Lib.Spellbook["Q"].Mana < Lib.Spellbook["R"].Mana)
             {
@@ -325,7 +330,12 @@ namespace PerfectDarius
         {
             if (useq && Lib.Spellbook["Q"].IsReady())
             {
-                if (CanQ(TargetSelector.GetTarget(Lib.Spellbook["E"].Range, DamageType.Physical)))
+                var qtarget = TargetSelector.GetTarget(Lib.Spellbook["E"].Range, DamageType.Physical);
+                if (qtarget == null)
+                {
+                    return;
+                }
+                if (CanQ(qtarget))
                 {
                     Lib.Spellbook["Q"].Cast();
                 }
@@ -334,13 +344,17 @@ namespace PerfectDarius
             if (usew && Lib.Spellbook["W"].IsReady())
             {
                 var wtarget = TargetSelector.GetTarget(Lib.Spellbook["E"].Range, DamageType.Physical);
+                if (wtarget  == null)
+                {
+                    return;
+                }
                 if (wtarget.IsValidTarget(Lib.Spellbook["W"].Range) && !wtarget.IsZombie)
                 {
                     if (wtarget.Distance(Lib.Player.PreviousPosition) <= 200 && Lib.WDmg(wtarget) >= wtarget.Health)
                     {
                         if (Variables.GameTimeTickCount - LastDunkTimeStamp >= 500)
                         {
-                            Lib.Spellbook["W"].Cast();
+                            Lib.Spellbook["W"].CastOnUnit(wtarget);
                         }
                     }
                 }
@@ -348,9 +362,13 @@ namespace PerfectDarius
 
             
 
-                if (usee && Lib.Spellbook["E"].IsReady())
+            if (usee && Lib.Spellbook["E"].IsReady())
             {
                 var etarget = TargetSelector.GetTarget(Lib.Spellbook["E"].Range);
+                if (etarget == null)
+                {
+                    return;
+                }
                 if (etarget.IsValidTarget())
                 {
                     if (etarget.Distance(Lib.Player.PreviousPosition) > 250)
@@ -361,7 +379,7 @@ namespace PerfectDarius
                         if (Lib.RDmg(etarget, PassiveCount(etarget)) - Lib.Hemorrhage(etarget, 1) >= etarget.Health)
                             Lib.Spellbook["E"].Cast(etarget.PreviousPosition);
 
-                        if (Lib.Spellbook["Q"].IsReady() || Lib.Spellbook["W"].IsReady())
+                        if (Lib.Spellbook["W"].IsReady())
                             Lib.Spellbook["E"].Cast(etarget.PreviousPosition);
 
                         if (Lib.Player.GetAutoAttackDamage(etarget) + Lib.Hemorrhage(etarget, 3) * 3 >= etarget.Health)
@@ -373,7 +391,10 @@ namespace PerfectDarius
             if (user && Lib.Spellbook["R"].IsReady())
             {
                 var unit = TargetSelector.GetTarget(Lib.Spellbook["R"].Range, DamageType.True);
-
+                if (unit == null)
+                {
+                    return;
+                }
                 if (unit.IsValidTarget(Lib.Spellbook["R"].Range) && !unit.IsZombie)
                 {
                     if (!unit.HasBuffOfType(BuffType.Invulnerability) && !unit.HasBuffOfType(BuffType.SpellShield))
