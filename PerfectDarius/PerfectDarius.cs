@@ -506,7 +506,7 @@ namespace PerfectDarius
             Config.Add(lmenu);
 
             var lastmenu = new Menu("lastmenu", "Last Hit Settings");
-            lastmenu.Add(new MenuBool("usewLC", "Use W for Last Hit", true));
+            lastmenu.Add(new MenuBool("usewLH", "Use W for Last Hit", true));
             Config.Add(lastmenu);
 
 
