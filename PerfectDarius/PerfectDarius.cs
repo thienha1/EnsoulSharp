@@ -20,18 +20,12 @@ namespace PerfectDarius
         internal static int LastGrabTimeStamp;
         internal static int LastDunkTimeStamp;
         internal static HpBarIndicator HPi = new HpBarIndicator();
-        static Items.Item HealthPot;
-        static Items.Item ManaPot;
-        static Items.Item CrystalFlask;
         static SpellSlot IgniteSlot;
         public PerfectDarius()
         {
             if (ObjectManager.Player.CharacterName == "Darius")
             {
                 Chat.Print("Perfect Darius v1.5");
-                HealthPot = new Items.Item(2003, 0);
-                ManaPot = new Items.Item(2004, 0);
-                CrystalFlask = new Items.Item(2041, 0);
                 IgniteSlot = ObjectManager.Player.GetSpellSlot("summonerdot");
                 Menu_OnLoad();
                 Game.OnUpdate += Game_OnUpdate;
@@ -178,6 +172,12 @@ namespace PerfectDarius
                     break;
                 case OrbwalkerMode.Harass:
                     Harass();
+                    break;
+                case OrbwalkerMode.LaneClear:
+                    Clear();
+                    break;
+                case OrbwalkerMode.LastHit:
+                    LastHit();
                     break;
             }
 
@@ -394,6 +394,75 @@ namespace PerfectDarius
                 }
             }
         }
+        private static void Clear()
+        {
+            if (Lib.Player.IsWindingUp)
+            {
+                return;
+            }
+            if (Config["lmenu"].GetValue<MenuBool>("useqLC") && Lib.Spellbook["Q"].IsReady() && !Lib.Player.IsDashing())
+            {
+                var minis = GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Player.AttackRange + 50)).Cast<AIBaseClient>().ToList();
+                if (minis.Count() == 0)
+                {
+                    minis = GameObjects.Jungle.Where(m => m.IsValidTarget(Lib.Spellbook["Q"].Range)).Cast<AIBaseClient>().ToList();
+                    if (GameObjects.Jungle.Where(m => m.IsValidTarget(Lib.Spellbook["Q"].Range)).Cast<AIBaseClient>().ToList().Count() >=
+                        Config["lmenu"].GetValue<MenuSlider>("minimumMini").Value &&
+                        minis.Count(m => m.Health - Lib.Spellbook["Q"].GetDamage(m) < 50 && m.Health - Lib.Spellbook["Q"].GetDamage(m) > 0) == 0 &&
+                        (GameObjects.Jungle.Where(m => m.IsValidTarget(Lib.Player.AttackRange)).Cast<AIBaseClient>().ToList().Count() <= 0 || !Orbwalker.CanAttack()))
+                    {
+                        Lib.Spellbook["Q"].Cast();
+                        return;
+                    }
+                }
+                else
+                {
+                    if (GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Spellbook["Q"].Range)).Cast<AIBaseClient>().ToList().Count() >=
+                        Config["lmenu"].GetValue<MenuSlider>("minimumMini").Value &&
+                        minis.Count(m => m.Health - Lib.Spellbook["Q"].GetDamage(m) < 50 && m.Health - Lib.Spellbook["Q"].GetDamage(m) > 0) == 0 &&
+                        (GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Player.AttackRange)).Cast<AIBaseClient>().ToList().Count() <= 0 || !Orbwalker.CanAttack()))
+                    {
+                        Lib.Spellbook["Q"].Cast();
+                        return;
+                    }
+                }
+            }
+            if (Config["lmenu"].GetValue<MenuBool>("usewLC") && Lib.Spellbook["W"].IsReady())
+            {
+                var minionsForW = GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Spellbook["W"].Range)).Cast<AIBaseClient>().ToList();
+                if (minionsForW.Count() == 0)
+                {
+                    minionsForW = GameObjects.Jungle.Where(m => m.IsValidTarget(Lib.Spellbook["W"].Range)).Cast<AIBaseClient>().ToList();
+                }
+
+                foreach (var minion in minionsForW)
+                {
+                    if (minion.Health < Lib.Spellbook["W"].GetDamage(minion))
+                    {
+                        Lib.Spellbook["W"].CastOnUnit(minion);
+                    }
+                }
+            }
+        }
+        private static void LastHit()
+        {
+            if (Config["lastmenu"].GetValue<MenuBool>("usewLH") && Lib.Spellbook["W"].IsReady())
+            {
+                var minionsForW = GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Spellbook["W"].Range)).Cast<AIBaseClient>().ToList();
+                if (minionsForW.Count() == 0)
+                {
+                    minionsForW = GameObjects.Jungle.Where(m => m.IsValidTarget(Lib.Spellbook["W"].Range)).Cast<AIBaseClient>().ToList();
+                }
+
+                foreach (var minion in minionsForW)
+                {
+                    if (minion.Health < Lib.Spellbook["W"].GetDamage(minion))
+                    {
+                        Lib.Spellbook["W"].CastOnUnit(minion);
+                    }
+                }
+            }
+        }
 
         internal static void Menu_OnLoad()
         {
@@ -408,13 +477,20 @@ namespace PerfectDarius
             cmenu.Add(new MenuBool("www2w", "Please Select The Target to Use The Ult"));
             Config.Add(cmenu);
 
-            var hmenu = new Menu("Harass Settings", "hmenu");
+            var hmenu = new Menu("hmenu", "Harass Settings");
             hmenu.Add(new MenuBool("harassq", "Use Q in harass")).SetValue(true);
             Config.Add(hmenu);
 
-            var lmenu = new Menu("Lane/Jungle Clear Settings", "lmenu");
-            lmenu.Add(new MenuBool("added", "Will be added soon."));
+            var lmenu = new Menu("lmenu", "Lane/Jungle Clear Settings");
+            lmenu.Add(new MenuBool("useqLC", "Use Q", true));
+            lmenu.Add(new MenuSlider("minimumMini", "Use Q min minion", 2, 1, 6));
+            lmenu.Add(new MenuBool("usewLC", "Use W for Last Hit", true));
             Config.Add(lmenu);
+
+            var lastmenu = new Menu("lastmenu", "Last Hit Settings");
+            lastmenu.Add(new MenuBool("usewLC", "Use W for Last Hit", true));
+            Config.Add(lastmenu);
+
 
             var amenu = new Menu("Activator", "amenu");
             amenu.Add(new MenuBool("useIgn", "Use Ignite")).SetValue(true);
@@ -459,10 +535,6 @@ namespace PerfectDarius
       
             
         };
-
-        public static Items.Item HealthPot { get; private set; }
-        public static Items.Item ManaPot { get; private set; }
-        public static Items.Item CrystalFlask { get; private set; }
         
 
 
