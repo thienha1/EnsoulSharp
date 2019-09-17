@@ -257,6 +257,27 @@ namespace PerfectDarius
                 }
             }
         }
+        public static void AutoQBlade(AIBaseClient unit)
+        {
+            if (Lib.Player.HasBuff("dariusqcast") && Lib.Player.CountEnemyHeroesInRange(650) < 3)
+            {
+                Orbwalker.AttackState = false;
+                Orbwalker.MovementState = false;
+                if (unit.DistanceToPlayer() <= 250)
+                {
+                    Lib.Player.IssueOrder(GameObjectOrder.MoveTo, Lib.Player.Position.Extend(unit.Position, -Lib.Spellbook["Q"].Range));
+                }
+                else
+                {
+                    Lib.Player.IssueOrder(GameObjectOrder.MoveTo, Lib.Player.Position);
+                }
+            }
+            else
+            {
+                Orbwalker.AttackState = true;
+                Orbwalker.MovementState = true;
+            }
+        }
 
         internal static bool CanQ(AIBaseClient unit)
         {
@@ -328,10 +349,15 @@ namespace PerfectDarius
         {
             if (Config["hmenu"].GetValue<MenuBool>("harassq").Enabled && Lib.Spellbook["Q"].IsReady())
             {
+                var qtarget = TargetSelector.GetTarget(Lib.Spellbook["Q"].Range, DamageType.Physical);
                 if (Lib.Player.Mana / Lib.Player.MaxMana * 100 > 60)
                 {
-                    if (CanQ(TargetSelector.GetTarget(Lib.Spellbook["E"].Range)))
+                    if (CanQ(qtarget))
                     {
+                        if (Config["rmenu"].GetValue<MenuBool>("autoblade").Enabled)
+                        {
+                            AutoQBlade(qtarget);
+                        }
                         Lib.Spellbook["Q"].Cast();
                     }
                 }
@@ -347,8 +373,12 @@ namespace PerfectDarius
                 {
                     return;
                 }
-                if (CanQ(qtarget))
+                if (CanQ(qtarget) && Lib.Player.CanMove)
                 {
+                    if(Config["rmenu"].GetValue<MenuBool>("autoblade").Enabled)
+                    { 
+                        AutoQBlade(qtarget);
+                    }
                     Lib.Spellbook["Q"].Cast();
                 }
             }
@@ -430,7 +460,7 @@ namespace PerfectDarius
             {
                 return;
             }
-            if (Config["lmenu"].GetValue<MenuBool>("useqLC") && Lib.Spellbook["Q"].IsReady() && !Lib.Player.IsDashing())
+            if (Config["lmenu"].GetValue<MenuBool>("useqLC").Enabled && Lib.Spellbook["Q"].IsReady() && !Lib.Player.IsDashing())
             {
                 var minis = GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Player.AttackRange + 50)).Cast<AIBaseClient>().ToList();
                 if (minis.Count() == 0)
@@ -457,7 +487,7 @@ namespace PerfectDarius
                     }
                 }
             }
-            if (Config["lmenu"].GetValue<MenuBool>("usewLC") && Lib.Spellbook["W"].IsReady())
+            if (Config["lmenu"].GetValue<MenuBool>("usewLC").Enabled && Lib.Spellbook["W"].IsReady())
             {
                 var minionsForW = GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Spellbook["W"].Range)).Cast<AIBaseClient>().ToList();
                 if (minionsForW.Count() == 0)
@@ -476,7 +506,7 @@ namespace PerfectDarius
         }
         private static void LastHit()
         {
-            if (Config["lastmenu"].GetValue<MenuBool>("usewLH") && Lib.Spellbook["W"].IsReady())
+            if (Config["lastmenu"].GetValue<MenuBool>("usewLH").Enabled && Lib.Spellbook["W"].IsReady())
             {
                 var minionsForW = GameObjects.EnemyMinions.Where(m => m.IsValidTarget(Lib.Spellbook["W"].Range)).Cast<AIBaseClient>().ToList();
                 if (minionsForW.Count() == 0)
@@ -530,6 +560,7 @@ namespace PerfectDarius
             var rmenu = new Menu("rmenu", "More Settings");
             
             rmenu.Add(new MenuBool("useeint", "Interrupt Spells with E")).SetValue(true);
+            rmenu.Add(new MenuBool("autoblade", "Auto move hit blade")).SetValue(true);
             rmenu.Add(new MenuBool("tpcancel", "E to Cancel the Enemy's TP")).SetValue(true);
             rmenu.Add(new MenuBool("user", "Use R")).SetValue(true);
             rmenu.Add(new MenuBool("ksr", "Use R in KS")).SetValue(true);
