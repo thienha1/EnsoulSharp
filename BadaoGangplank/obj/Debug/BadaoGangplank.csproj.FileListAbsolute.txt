@@ -1,0 +1,2 @@
+D:\BadaoGangplank\obj\Debug\BadaoGangplank.csprojAssemblyReference.cache
+D:\BadaoGangplank\obj\Debug\BadaoGangplank.csproj.CoreCompileInputs.cache

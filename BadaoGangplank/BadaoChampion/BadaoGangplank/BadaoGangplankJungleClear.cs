@@ -23,7 +23,7 @@ namespace BadaoKingdom.BadaoChampion.BadaoGangplank
                 return;
             if (!BadaoGangplankVariables.JungleQ.GetValue<bool>())
                 return;
-            foreach (Obj_AI_Minion minion in MinionManager.GetMinions(BadaoMainVariables.Q.Range,
+            foreach (AIMinionClient minion in MinionManager.GetMinions(BadaoMainVariables.Q.Range,
                                                                MinionTypes.All, MinionTeam.Neutral, MinionOrderTypes.Health))
             {
                 if (minion.BadaoIsValidTarget() && BadaoMainVariables.Q.GetDamage(minion) >= minion.Health)

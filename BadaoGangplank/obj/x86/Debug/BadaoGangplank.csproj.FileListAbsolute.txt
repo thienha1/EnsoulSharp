@@ -1,0 +1,16 @@
+D:\BadaoGangplank\obj\x86\Debug\BadaoGangplank.csproj.CoreCompileInputs.cache
+D:\BadaoGangplank\bin\x86\Debug\EnsoulSharp.Common.dll
+D:\BadaoGangplank\bin\x86\Debug\EnsoulSharp.Sandbox.dll
+D:\BadaoGangplank\bin\x86\Debug\EnsoulSharp.SDK.dll
+D:\BadaoGangplank\bin\x86\Debug\EnsoulSharp.Wrapper.dll
+D:\BadaoGangplank\bin\x86\Debug\SharpDX.Direct3D9.dll
+D:\BadaoGangplank\bin\x86\Debug\SharpDX.dll
+D:\BadaoGangplank\bin\x86\Debug\log4net.dll
+D:\BadaoGangplank\bin\x86\Debug\Newtonsoft.Json.dll
+D:\BadaoGangplank\obj\x86\Debug\BadaoGangplank.csproj.CopyComplete
+D:\BadaoGangplank\obj\x86\Debug\BadaoGangplank.csprojAssemblyReference.cache
+D:\BadaoGangplank\bin\x86\Debug\BadaoGangPlank.exe.config
+D:\BadaoGangplank\bin\x86\Debug\BadaoGangPlank.exe
+D:\BadaoGangplank\bin\x86\Debug\BadaoGangPlank.pdb
+D:\BadaoGangplank\obj\x86\Debug\BadaoGangPlank.exe
+D:\BadaoGangplank\obj\x86\Debug\BadaoGangPlank.pdb
