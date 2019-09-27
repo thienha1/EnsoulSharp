@@ -93,7 +93,7 @@ namespace PerfectDarius
 
         internal static int PassiveCount(AIBaseClient unit)
         {
-            return unit.GetBuffCount("dariushemo") > 0 ? unit.GetBuffCount("dariushemo") : 0;
+            return unit.GetBuffCount("DariusHemoMarker") > 0 ? unit.GetBuffCount("DariusHemoMarker") : 0;
         }
 
         internal static void Drawing_OnEndScene(EventArgs args)
@@ -224,9 +224,9 @@ namespace PerfectDarius
             foreach (var enemy in GameObjects.EnemyHeroes.Where(ene => ene.IsValidTarget() && !ene.IsZombie))
             {
                 var enez = Drawing.WorldToScreen(enemy.Position); 
-                if (enemy.GetBuffCount("dariushemo") > 0)
+                if (enemy.GetBuffCount("DariusHemoMarker") > 0)
                 {
-                    var endtime = enemy.GetBuff("dariushemo").EndTime - Game.Time;
+                    var endtime = enemy.GetBuff("DariusHemoMarker").EndTime - Game.Time;
                     // Drawing.DrawText(enez[0] - 50, enez[1], System.Drawing.Color.OrangeRed,  "Stack Count: " + enemy.GetBuffCount("dariushemo"));
                    // Drawing.DrawText(enez[0] - 25, enez[1] + 20, System.Drawing.Color.OrangeRed, endtime.ToString("0.0"));
                 }
@@ -319,7 +319,7 @@ namespace PerfectDarius
                 return false;
             }
 
-            if (Lib.Spellbook["W"].IsReady() && Lib.Player.HasBuff("DariusNoxonTactictsONH") &&
+            if (Lib.Spellbook["W"].IsReady() && Lib.Player.HasBuff("dariushemomax") &&
                 unit.Distance(Lib.Player.PreviousPosition) <= 225)
             {
                 return false;
