@@ -5,10 +5,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F9B15156-8059-45D3-88CF-C1A5488DBDAE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>DeveloperUAC</RootNamespace>
     <AssemblyName>DeveloperUAC</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <PreBuildEvent />
@@ -35,28 +35,28 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EnsoulSharp.Sandbox">
-      <HintPath>H:\new dl\EnsoulSharp\System\EnsoulSharp.Sandbox.dll</HintPath>
+      <HintPath>..\..\..\EnsoulSharp\System\EnsoulSharp.Sandbox.dll</HintPath>
     </Reference>
     <Reference Include="EnsoulSharp.SDK">
-      <HintPath>H:\new dl\EnsoulSharp\System\EnsoulSharp.SDK.dll</HintPath>
+      <HintPath>..\..\..\EnsoulSharp\System\EnsoulSharp.SDK.dll</HintPath>
     </Reference>
     <Reference Include="EnsoulSharp.Wrapper">
-      <HintPath>H:\new dl\EnsoulSharp\System\EnsoulSharp.Wrapper.dll</HintPath>
+      <HintPath>..\..\..\EnsoulSharp\System\EnsoulSharp.Wrapper.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>H:\new dl\EnsoulSharp\System\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SebbyLib">
-      <HintPath>H:\new dl\EnsoulSharp\System\SebbyLib.dll</HintPath>
-    </Reference>
     <Reference Include="SharpDX">
-      <HintPath>H:\new dl\EnsoulSharp\System\SharpDX.dll</HintPath>
+      <HintPath>..\..\..\EnsoulSharp\System\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct3D9">
-      <HintPath>H:\new dl\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
+      <HintPath>..\..\..\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
