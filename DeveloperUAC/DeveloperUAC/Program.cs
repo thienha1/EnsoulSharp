@@ -19,6 +19,7 @@ namespace DeveloperUAC
         public static Spell Q, W, E, R;
         private static Menu MainMenu;
         private static AIHeroClient Player { get { return ObjectManager.Player; } }
+        private static AIBaseClient Enemy;
         static void Main(string[] args)
         {
 
@@ -52,19 +53,20 @@ namespace DeveloperUAC
         private static void Drawing_OnDraw(EventArgs args)
         {
             SpellDataInstClient spellQ = Player.Spellbook.GetSpell(SpellSlot.Q);
-            SpellData dataQ = Player.Spellbook.GetSpell(SpellSlot.Q).SData;
             SpellDataInstClient spellW = Player.Spellbook.GetSpell(SpellSlot.W);
-            SpellData dataW = Player.Spellbook.GetSpell(SpellSlot.W).SData;
             SpellDataInstClient spellE = Player.Spellbook.GetSpell(SpellSlot.E);
-            SpellData dataE = Player.Spellbook.GetSpell(SpellSlot.E).SData;
             SpellDataInstClient spellR = Player.Spellbook.GetSpell(SpellSlot.R);
-            SpellData dataR = Player.Spellbook.GetSpell(SpellSlot.R).SData;
             var playerC = Player.Crit.ToString();
-            var playerC1 = playerC.Replace("0 ", "") + "%";
             string bufferious = "\n";
-            foreach (var buff in Player.Buffs)
+            string bufferious2 = "\n";
+            foreach (var buff in Enemy.Buffs)
             {
                 bufferious += (buff.Name + "(" + buff.Count + ")" + ", ");
+
+            }
+            foreach (var buff in Player.Buffs)
+            {
+                bufferious2 += (buff.Name + "(" + buff.Count + ")" + ", ");
 
             }
 
@@ -82,8 +84,10 @@ namespace DeveloperUAC
             Drawing.DrawText(150, 265, Color.White, "Base AD: " + Player.BaseAttackDamage.ToString());
             Drawing.DrawText(150, 280, Color.White, "Base AP: " + Player.BaseAbilityDamage.ToString());
             Drawing.DrawText(150, 325, Color.White, "Cursor Position: " + Game.CursorPosRaw.ToString());
-            Drawing.DrawText(150, 450, Color.White, "Buffs: ");
+            Drawing.DrawText(150, 450, Color.White, "Enemy Buffs: ");
             Drawing.DrawText(150, 465, Color.White, bufferious.ToString());
+            Drawing.DrawText(150, 450, Color.White, "Player Buffs: ");
+            Drawing.DrawText(150, 465, Color.White, bufferious2.ToString());
 
 
             Drawing.DrawText(500, 40, Color.Yellow, "Skill Info:");
@@ -92,21 +96,33 @@ namespace DeveloperUAC
             Drawing.DrawText(500, 90, Color.White, "Name: " + spellQ.Name.ToString());
             Drawing.DrawText(500, 105, Color.White, "Level: " + spellQ.Level.ToString());
             Drawing.DrawText(500, 120, Color.White, "Range: " + spellQ.SData.CastRange.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Cone Angle: " + spellQ.SData.CastConeAngle.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Skill Type: " + spellQ.SData.CastType.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Missile Speed: " + spellQ.SData.MissileSpeed.ToString());
             Drawing.DrawText(500, 170, Color.White, "W: ");
             Drawing.DrawText(500, 180, Color.Yellow, "--------");
             Drawing.DrawText(500, 190, Color.White, "Name: " + spellW.Name.ToString());
             Drawing.DrawText(500, 200, Color.White, "Level: " + spellW.Level.ToString());
             Drawing.DrawText(500, 210, Color.White, "Range: " + spellW.SData.CastRange.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Cone Angle: " + spellW.SData.CastConeAngle.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Skill Type: " + spellW.SData.CastType.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Missile Speed: " + spellQ.SData.MissileSpeed.ToString());
             Drawing.DrawText(500, 250, Color.White, "E: ");
             Drawing.DrawText(500, 260, Color.Yellow, "--------");
             Drawing.DrawText(500, 275, Color.White, "Name: " + spellE.Name.ToString());
             Drawing.DrawText(500, 290, Color.White, "Level: " + spellE.Level.ToString());
             Drawing.DrawText(500, 305, Color.White, "Range: " + spellE.SData.CastRange.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Cone Angle: " + spellE.SData.CastConeAngle.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Skill Type: " + spellE.SData.CastType.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Missile Speed: " + spellQ.SData.MissileSpeed.ToString());
             Drawing.DrawText(500, 350, Color.White, "R: ");
             Drawing.DrawText(500, 360, Color.Yellow, "--------");
             Drawing.DrawText(500, 380, Color.White, "Name: " + spellR.Name.ToString());
             Drawing.DrawText(500, 400, Color.White, "Level: " + spellR.Level.ToString());
             Drawing.DrawText(500, 420, Color.White, "Range: " + spellR.SData.CastRange.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Cone Angle: " + spellR.SData.CastConeAngle.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Skill Type: " + spellR.SData.CastType.ToString());
+            Drawing.DrawText(500, 120, Color.White, "Missile Speed: " + spellQ.SData.MissileSpeed.ToString());
         }
     }
 }
