@@ -296,11 +296,6 @@ namespace PerfectDarius
                 return false;
             }
 
-            if (Lib.Spellbook["W"].IsReady() || Lib.Spellbook["E"].IsReady())
-            {
-                return false;
-            }
-
             if (Lib.Player.Distance(unit.PreviousPosition) < 175 ||
                 Variables.GameTimeTickCount - LastGrabTimeStamp < 350)
             {
@@ -319,13 +314,8 @@ namespace PerfectDarius
                 return false;
             }
 
-            if (Lib.Spellbook["W"].IsReady() && Lib.Player.HasBuff("dariushemomax") &&
+            if (Lib.Spellbook["W"].IsReady() || Lib.Player.HasBuff("DariusNoxianTacticsONH") &&
                 unit.Distance(Lib.Player.PreviousPosition) <= 225)
-            {
-                return false;
-            }
-
-            if (Lib.Player.Distance(unit.PreviousPosition) > Lib.Spellbook["Q"].Range)
             {
                 return false;
             }
@@ -375,29 +365,26 @@ namespace PerfectDarius
                 }
                 if (CanQ(qtarget) && Lib.Player.CanMove)
                 {
-                    if(Config["rmenu"].GetValue<MenuBool>("autoblade").Enabled)
+                    Lib.Spellbook["Q"].Cast();
+                    if (Config["rmenu"].GetValue<MenuBool>("autoblade").Enabled)
                     { 
                         AutoQBlade(qtarget);
                     }
-                    Lib.Spellbook["Q"].Cast();
                 }
             }
 
             if (usew && Lib.Spellbook["W"].IsReady())
             {
-                var wtarget = TargetSelector.GetTarget(Lib.Spellbook["E"].Range, DamageType.Physical);
+                var wtarget = TargetSelector.GetTarget(Lib.Spellbook["W"].Range);
                 if (wtarget  == null)
                 {
                     return;
                 }
                 if (wtarget.IsValidTarget(Lib.Spellbook["W"].Range) && !wtarget.IsZombie)
                 {
-                    if (wtarget.Distance(Lib.Player.PreviousPosition) <= 200 && Lib.WDmg(wtarget) >= wtarget.Health)
+                    if (Variables.GameTimeTickCount - LastDunkTimeStamp >= 500)
                     {
-                        if (Variables.GameTimeTickCount - LastDunkTimeStamp >= 500)
-                        {
-                            Lib.Spellbook["W"].CastOnUnit(wtarget);
-                        }
+                        Lib.Spellbook["W"].CastOnUnit(wtarget);
                     }
                 }
             }
@@ -612,10 +599,6 @@ namespace PerfectDarius
             //NEW ITEM
             if (Items.HasItem(Lib.Player, 3748) && Items.CanUseItem(Lib.Player, 3748))
                 Items.UseItem(Lib.Player, 3748);
-
-
-
-           
         }
 
         internal static float QDmg(AIBaseClient unit)
