@@ -53,6 +53,8 @@ namespace D_Udyr
         private static void Game_OnGameLoad(EventArgs args)
         {
             _player = ObjectManager.Player;
+            EnsoulSharp.SDK.Orbwalker.AttackState = false;
+            EnsoulSharp.SDK.Orbwalker.MovementState = false;
             //if (ObjectManager.Player.BaseSkinName != ChampionName) return;
 
 
