@@ -100,6 +100,7 @@ namespace LCS_Udyr
             if (sender.IsMe && Orbwalking.IsAutoAttack(args.SData.Name) && args.Target is AIHeroClient && args.Target.IsValid
                 && Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
+                if (sender == null) return;
                 switch (Config.Item("combo.q.type").GetValue<StringList>().SelectedIndex)
                 {
                     case 0:
