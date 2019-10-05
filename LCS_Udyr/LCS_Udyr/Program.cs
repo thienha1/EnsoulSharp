@@ -101,7 +101,7 @@ namespace LCS_Udyr
                 && Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
                 if (sender == null || args == null) Chat.Print("Missing something!!");
-                switch (Config.Item("combo.q.type").GetValue<StringList>().SelectedIndex)
+                switch (Config.Item("combo.type").GetValue<StringList>().SelectedIndex)
                 {
                     case 0:
 
