@@ -12,19 +12,19 @@ namespace LCS_Udyr
     {
         public static bool IsTiger(this AIHeroClient unit)
         {
-            return unit.HasBuff("udyrtigerpunch");
+            return unit.HasBuff("UdyrTigerStance");
         }
         public static bool IsTurtle(this AIHeroClient unit)
         {
-            return unit.HasBuff("udyrturtleactivation");
+            return unit.HasBuff("UdyrTurrleStance");
         }
         public static bool IsBear(this AIHeroClient unit)
         {
-            return unit.HasBuff("udyrbearactivation");
+            return unit.HasBuff("UdyrBearStance");
         }
         public static bool IsPhoenix(this AIHeroClient unit)
         {
-            return unit.HasBuff("udyrphoenixactivation"); // udyrbearstuncheck
+            return unit.HasBuff("UdyrPhoenixStance"); // udyrbearstuncheck
         }
         public static bool HasBearPassive(this AIHeroClient unit)
         {
