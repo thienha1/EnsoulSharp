@@ -12,7 +12,7 @@ namespace LCS_Udyr
     {
         public static bool IsTiger(this AIHeroClient unit)
         {
-            return unit.HasBuff("UdyrTigerStance");
+            return unit.HasBuff("UdyrTigerPunchBleed");
         }
         public static bool IsTurtle(this AIHeroClient unit)
         {
