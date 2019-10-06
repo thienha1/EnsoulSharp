@@ -1,0 +1,16 @@
+D:\CheerleaderLux\obj\x86\Debug\CheerLeaderLux.csprojAssemblyReference.cache
+D:\CheerleaderLux\obj\x86\Debug\CheerLeaderLux.csproj.CoreCompileInputs.cache
+D:\CheerleaderLux\bin\Debug\EnsoulSharp.Common.dll
+D:\CheerleaderLux\bin\Debug\EnsoulSharp.Sandbox.dll
+D:\CheerleaderLux\bin\Debug\EnsoulSharp.SDK.dll
+D:\CheerleaderLux\bin\Debug\EnsoulSharp.Wrapper.dll
+D:\CheerleaderLux\bin\Debug\SharpDX.Direct3D9.dll
+D:\CheerleaderLux\bin\Debug\SharpDX.dll
+D:\CheerleaderLux\bin\Debug\log4net.dll
+D:\CheerleaderLux\obj\x86\Debug\CheerLeaderLux.csproj.CopyComplete
+D:\CheerleaderLux\bin\Debug\CheerLeaderLux.exe.config
+D:\CheerleaderLux\bin\Debug\CheerLeaderLux.exe
+D:\CheerleaderLux\bin\Debug\CheerLeaderLux.pdb
+D:\CheerleaderLux\obj\x86\Debug\CheerLeaderLux.exe.config
+D:\CheerleaderLux\obj\x86\Debug\CheerLeaderLux.exe
+D:\CheerleaderLux\obj\x86\Debug\CheerLeaderLux.pdb
