@@ -1,0 +1,16 @@
+D:\Karma the Enlightened One\Karma\bin\Release\Karma the Enlightened One.exe.config
+D:\Karma the Enlightened One\Karma\bin\Release\Karma the Enlightened One.exe
+D:\Karma the Enlightened One\Karma\bin\Release\Karma the Enlightened One.pdb
+D:\Karma the Enlightened One\Karma\bin\Release\EnsoulSharp.Common.dll
+D:\Karma the Enlightened One\Karma\bin\Release\EnsoulSharp.Sandbox.dll
+D:\Karma the Enlightened One\Karma\bin\Release\EnsoulSharp.SDK.dll
+D:\Karma the Enlightened One\Karma\bin\Release\EnsoulSharp.Wrapper.dll
+D:\Karma the Enlightened One\Karma\bin\Release\SharpDX.Direct3D9.dll
+D:\Karma the Enlightened One\Karma\bin\Release\SharpDX.dll
+D:\Karma the Enlightened One\Karma\bin\Release\log4net.dll
+D:\Karma the Enlightened One\Karma\obj\Debug\Karma the Enlightened One.csprojAssemblyReference.cache
+D:\Karma the Enlightened One\Karma\obj\Debug\Karma the Enlightened One.exe.config
+D:\Karma the Enlightened One\Karma\obj\Debug\Karma the Enlightened One.csproj.CoreCompileInputs.cache
+D:\Karma the Enlightened One\Karma\obj\Debug\Karma the Enlightened One.csproj.CopyComplete
+D:\Karma the Enlightened One\Karma\obj\Debug\Karma the Enlightened One.exe
+D:\Karma the Enlightened One\Karma\obj\Debug\Karma the Enlightened One.pdb
