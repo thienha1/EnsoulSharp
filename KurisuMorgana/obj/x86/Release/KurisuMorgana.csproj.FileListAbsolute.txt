@@ -1,0 +1,14 @@
+D:\KurisuMorgana\bin\Release\KurisuMorgana.exe.config
+D:\KurisuMorgana\bin\Release\KurisuMorgana.exe
+D:\KurisuMorgana\bin\Release\KurisuMorgana.pdb
+D:\KurisuMorgana\bin\Release\EnsoulSharp.Common.dll
+D:\KurisuMorgana\bin\Release\EnsoulSharp.Sandbox.dll
+D:\KurisuMorgana\bin\Release\EnsoulSharp.Wrapper.dll
+D:\KurisuMorgana\bin\Release\SharpDX.Direct3D9.dll
+D:\KurisuMorgana\bin\Release\SharpDX.dll
+D:\KurisuMorgana\bin\Release\log4net.dll
+D:\KurisuMorgana\obj\x86\Release\KurisuMorgana.csprojAssemblyReference.cache
+D:\KurisuMorgana\obj\x86\Release\KurisuMorgana.csproj.CoreCompileInputs.cache
+D:\KurisuMorgana\obj\x86\Release\KurisuMorgana.csproj.CopyComplete
+D:\KurisuMorgana\obj\x86\Release\KurisuMorgana.exe
+D:\KurisuMorgana\obj\x86\Release\KurisuMorgana.pdb
