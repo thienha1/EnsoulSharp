@@ -13,3 +13,5 @@ D:\BadaoGangplank\obj\x86\Release\BadaoGangplank.csproj.CoreCompileInputs.cache
 D:\BadaoGangplank\obj\x86\Release\BadaoGangplank.csproj.CopyComplete
 D:\BadaoGangplank\obj\x86\Release\BadaoGangPlank.exe
 D:\BadaoGangplank\obj\x86\Release\BadaoGangPlank.pdb
+D:\BadaoGangplank\obj\x86\Release\BadaoGangplank.csprojAssemblyReference.cache
+D:\BadaoGangplank\obj\x86\Release\BadaoGangPlank.exe.config

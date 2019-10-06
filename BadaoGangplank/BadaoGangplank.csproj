@@ -98,6 +98,7 @@
     <Compile Include="BadaoChecker.cs" />
     <Compile Include="BadaoMainVariables.cs" />
     <Compile Include="BadaoMath.cs" />
+    <Compile Include="Common\ItemData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -14,3 +14,4 @@ D:\BadaoGangplank\bin\x86\Debug\BadaoGangPlank.exe
 D:\BadaoGangplank\bin\x86\Debug\BadaoGangPlank.pdb
 D:\BadaoGangplank\obj\x86\Debug\BadaoGangPlank.exe
 D:\BadaoGangplank\obj\x86\Debug\BadaoGangPlank.pdb
+D:\BadaoGangplank\obj\x86\Debug\BadaoGangPlank.exe.config
