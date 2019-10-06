@@ -1,0 +1,13 @@
+D:\HeavenStrikeTalon\bin\Release\HeavenStrikeTalon.exe.config
+D:\HeavenStrikeTalon\bin\Release\HeavenStrikeTalon.exe
+D:\HeavenStrikeTalon\bin\Release\HeavenStrikeTalon.pdb
+D:\HeavenStrikeTalon\bin\Release\EnsoulSharp.Common.dll
+D:\HeavenStrikeTalon\bin\Release\EnsoulSharp.Sandbox.dll
+D:\HeavenStrikeTalon\bin\Release\EnsoulSharp.Wrapper.dll
+D:\HeavenStrikeTalon\bin\Release\SharpDX.Direct3D9.dll
+D:\HeavenStrikeTalon\bin\Release\SharpDX.dll
+D:\HeavenStrikeTalon\bin\Release\log4net.dll
+D:\HeavenStrikeTalon\obj\x86\Release\HeavenStrikeTalon.csproj.CoreCompileInputs.cache
+D:\HeavenStrikeTalon\obj\x86\Release\HeavenStrikeTalon.csproj.CopyComplete
+D:\HeavenStrikeTalon\obj\x86\Release\HeavenStrikeTalon.exe
+D:\HeavenStrikeTalon\obj\x86\Release\HeavenStrikeTalon.pdb
