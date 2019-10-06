@@ -1,0 +1,47 @@
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe.config
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.pdb
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\LeagueSharp.Common.dll
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\LeagueSharp.Data.dll
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\LeagueSharp.dll
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\SharpDX.dll
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\clipper_library.dll
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\LeagueSharp.Common.pdb
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\LeagueSharp.Data.pdb
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\bin\Debug\clipper_library.pdb
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csprojResolveAssemblyReference.cache
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.exe
+C:\Users\Spelfout\Documents\Visual Studio 2015\Projects\KledHighMajorCommodore\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.pdb
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe.config
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.pdb
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\LeagueSharp.Common.dll
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\LeagueSharp.Data.dll
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\LeagueSharp.dll
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\SharpDX.dll
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\clipper_library.dll
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\LeagueSharp.Common.pdb
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\LeagueSharp.Data.pdb
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\bin\Debug\clipper_library.pdb
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csprojResolveAssemblyReference.cache
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.exe
+C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.pdb
+D:\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe.config
+D:\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe
+D:\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.pdb
+D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.Common.dll
+D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.Sandbox.dll
+D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.SDK.dll
+D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.Wrapper.dll
+D:\KledHighMajorCommodore\bin\Debug\SharpDX.Direct3D9.dll
+D:\KledHighMajorCommodore\bin\Debug\SharpDX.dll
+D:\KledHighMajorCommodore\bin\Debug\log4net.dll
+D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csprojAssemblyReference.cache
+D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.exe.config
+D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csproj.CoreCompileInputs.cache
+D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csproj.CopyComplete
+D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.exe
+D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.pdb
