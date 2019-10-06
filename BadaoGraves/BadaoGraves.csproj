@@ -1,0 +1,92 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{F12A7C5F-F74B-41E0-A136-352BF3545F02}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>BadaoGraves</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>BadaoGraves</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnsoulSharp.Common">
+      <HintPath>..\EnsoulSharp\System\EnsoulSharp.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="EnsoulSharp.Sandbox">
+      <HintPath>..\EnsoulSharp\System\EnsoulSharp.Sandbox.dll</HintPath>
+    </Reference>
+    <Reference Include="EnsoulSharp.SDK">
+      <HintPath>..\EnsoulSharp\System\EnsoulSharp.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="EnsoulSharp.Wrapper">
+      <HintPath>..\EnsoulSharp\System\EnsoulSharp.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\EnsoulSharp\System\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D9">
+      <HintPath>..\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGraves.cs" />
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGravesAuto.cs" />
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGravesBurst.cs" />
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGravesCombo.cs" />
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGravesConfig.cs" />
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGravesHelper.cs" />
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGravesJungle.cs" />
+    <Compile Include="BadaoChampion\BadaoGraves\BadaoGravesVariables.cs" />
+    <Compile Include="BadaoChecker.cs" />
+    <Compile Include="BadaoMainVariables.cs" />
+    <Compile Include="BadaoMath.cs" />
+    <Compile Include="Common\ItemData.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".vs\BadaoGraves\v16\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

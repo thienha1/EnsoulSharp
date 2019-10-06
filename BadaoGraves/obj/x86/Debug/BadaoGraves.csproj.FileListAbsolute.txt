@@ -1,0 +1,16 @@
+D:\BadaoGraves\obj\x86\Debug\BadaoGraves.csprojAssemblyReference.cache
+D:\BadaoGraves\obj\x86\Debug\BadaoGraves.exe.config
+D:\BadaoGraves\obj\x86\Debug\BadaoGraves.csproj.CoreCompileInputs.cache
+D:\BadaoGraves\bin\Debug\BadaoGraves.exe.config
+D:\BadaoGraves\bin\Debug\BadaoGraves.exe
+D:\BadaoGraves\bin\Debug\BadaoGraves.pdb
+D:\BadaoGraves\bin\Debug\EnsoulSharp.Common.dll
+D:\BadaoGraves\bin\Debug\EnsoulSharp.Sandbox.dll
+D:\BadaoGraves\bin\Debug\EnsoulSharp.SDK.dll
+D:\BadaoGraves\bin\Debug\EnsoulSharp.Wrapper.dll
+D:\BadaoGraves\bin\Debug\SharpDX.Direct3D9.dll
+D:\BadaoGraves\bin\Debug\SharpDX.dll
+D:\BadaoGraves\bin\Debug\log4net.dll
+D:\BadaoGraves\obj\x86\Debug\BadaoGraves.csproj.CopyComplete
+D:\BadaoGraves\obj\x86\Debug\BadaoGraves.exe
+D:\BadaoGraves\obj\x86\Debug\BadaoGraves.pdb
