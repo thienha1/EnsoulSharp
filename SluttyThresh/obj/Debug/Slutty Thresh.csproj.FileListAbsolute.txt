@@ -1,0 +1,14 @@
+D:\Slutty Thresh\Slutty Thresh\bin\Release\Slutty Thresh.exe.config
+D:\Slutty Thresh\Slutty Thresh\bin\Release\Slutty Thresh.exe
+D:\Slutty Thresh\Slutty Thresh\bin\Release\Slutty Thresh.pdb
+D:\Slutty Thresh\Slutty Thresh\bin\Release\EnsoulSharp.Common.dll
+D:\Slutty Thresh\Slutty Thresh\bin\Release\EnsoulSharp.Sandbox.dll
+D:\Slutty Thresh\Slutty Thresh\bin\Release\EnsoulSharp.Wrapper.dll
+D:\Slutty Thresh\Slutty Thresh\bin\Release\SharpDX.Direct3D9.dll
+D:\Slutty Thresh\Slutty Thresh\bin\Release\SharpDX.dll
+D:\Slutty Thresh\Slutty Thresh\bin\Release\log4net.dll
+D:\Slutty Thresh\Slutty Thresh\obj\Debug\Slutty Thresh.csprojAssemblyReference.cache
+D:\Slutty Thresh\Slutty Thresh\obj\Debug\Slutty Thresh.csproj.CoreCompileInputs.cache
+D:\Slutty Thresh\Slutty Thresh\obj\Debug\Slutty Thresh.csproj.CopyComplete
+D:\Slutty Thresh\Slutty Thresh\obj\Debug\Slutty Thresh.exe
+D:\Slutty Thresh\Slutty Thresh\obj\Debug\Slutty Thresh.pdb
