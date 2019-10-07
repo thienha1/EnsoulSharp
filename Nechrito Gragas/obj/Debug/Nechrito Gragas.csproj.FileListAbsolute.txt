@@ -1,0 +1,17 @@
+D:\Nechrito Gragas\obj\Debug\Nechrito Gragas.csprojAssemblyReference.cache
+D:\Nechrito Gragas\obj\Debug\Nechrito Gragas.exe.config
+D:\Nechrito Gragas\obj\Debug\Nechrito Gragas.csproj.CoreCompileInputs.cache
+D:\Nechrito Gragas\bin\Debug\Nechrito Gragas.exe.config
+D:\Nechrito Gragas\bin\Debug\Nechrito Gragas.exe
+D:\Nechrito Gragas\bin\Debug\Nechrito Gragas.pdb
+D:\Nechrito Gragas\bin\Debug\EnsoulSharp.Common.dll
+D:\Nechrito Gragas\bin\Debug\EnsoulSharp.Sandbox.dll
+D:\Nechrito Gragas\bin\Debug\EnsoulSharp.SDK.dll
+D:\Nechrito Gragas\bin\Debug\EnsoulSharp.Wrapper.dll
+D:\Nechrito Gragas\bin\Debug\SharpDX.Direct3D9.dll
+D:\Nechrito Gragas\bin\Debug\SharpDX.dll
+D:\Nechrito Gragas\bin\Debug\SPrediction.dll
+D:\Nechrito Gragas\bin\Debug\log4net.dll
+D:\Nechrito Gragas\obj\Debug\Nechrito Gragas.csproj.CopyComplete
+D:\Nechrito Gragas\obj\Debug\Nechrito Gragas.exe
+D:\Nechrito Gragas\obj\Debug\Nechrito Gragas.pdb
