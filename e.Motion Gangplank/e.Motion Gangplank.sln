@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e.Motion Gangplank", "e.Motion Gangplank.csproj", "{9A30E5C2-8410-4004-838F-EBFCC34160A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A30E5C2-8410-4004-838F-EBFCC34160A9}.Debug|x86.ActiveCfg = Debug|x86
+		{9A30E5C2-8410-4004-838F-EBFCC34160A9}.Debug|x86.Build.0 = Debug|x86
+		{9A30E5C2-8410-4004-838F-EBFCC34160A9}.Release|x86.ActiveCfg = Release|x86
+		{9A30E5C2-8410-4004-838F-EBFCC34160A9}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F38E2222-3E2E-45A1-97DE-A5E5B2530028}
+	EndGlobalSection
+EndGlobal

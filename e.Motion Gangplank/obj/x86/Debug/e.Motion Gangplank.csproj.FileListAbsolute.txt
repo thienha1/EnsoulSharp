@@ -1,0 +1,18 @@
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion Gangplank.csprojAssemblyReference.cache
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion Gangplank.exe.config
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion_Gangplank.Properties.Resources.resources
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion Gangplank.csproj.GenerateResource.cache
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion Gangplank.csproj.CoreCompileInputs.cache
+D:\e.Motion Gangplank\bin\Debug\e.Motion Gangplank.exe.config
+D:\e.Motion Gangplank\bin\Debug\e.Motion Gangplank.exe
+D:\e.Motion Gangplank\bin\Debug\e.Motion Gangplank.pdb
+D:\e.Motion Gangplank\bin\Debug\EnsoulSharp.Common.dll
+D:\e.Motion Gangplank\bin\Debug\EnsoulSharp.Sandbox.dll
+D:\e.Motion Gangplank\bin\Debug\EnsoulSharp.Wrapper.dll
+D:\e.Motion Gangplank\bin\Debug\SharpDX.Direct3D9.dll
+D:\e.Motion Gangplank\bin\Debug\SharpDX.dll
+D:\e.Motion Gangplank\bin\Debug\SPrediction.dll
+D:\e.Motion Gangplank\bin\Debug\log4net.dll
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion Gangplank.csproj.CopyComplete
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion Gangplank.exe
+D:\e.Motion Gangplank\obj\x86\Debug\e.Motion Gangplank.pdb
