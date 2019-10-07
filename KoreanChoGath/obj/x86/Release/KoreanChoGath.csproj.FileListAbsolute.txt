@@ -1,0 +1,17 @@
+D:\KoreanChoGath\bin\Release\KoreanChoGath.exe.config
+D:\KoreanChoGath\bin\Release\KoreanChoGath.exe
+D:\KoreanChoGath\bin\Release\KoreanChoGath.pdb
+D:\KoreanChoGath\bin\Release\EnsoulSharp.Common.dll
+D:\KoreanChoGath\bin\Release\EnsoulSharp.Sandbox.dll
+D:\KoreanChoGath\bin\Release\EnsoulSharp.SDK.dll
+D:\KoreanChoGath\bin\Release\EnsoulSharp.Wrapper.dll
+D:\KoreanChoGath\bin\Release\KoreanCommon.exe
+D:\KoreanChoGath\bin\Release\SharpDX.Direct3D9.dll
+D:\KoreanChoGath\bin\Release\SharpDX.dll
+D:\KoreanChoGath\bin\Release\log4net.dll
+D:\KoreanChoGath\bin\Release\KoreanCommon.pdb
+D:\KoreanChoGath\obj\x86\Release\KoreanChoGath.exe.config
+D:\KoreanChoGath\obj\x86\Release\KoreanChoGath.csproj.CoreCompileInputs.cache
+D:\KoreanChoGath\obj\x86\Release\KoreanChoGath.csproj.CopyComplete
+D:\KoreanChoGath\obj\x86\Release\KoreanChoGath.exe
+D:\KoreanChoGath\obj\x86\Release\KoreanChoGath.pdb
