@@ -1,0 +1,12 @@
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\JustShyvanaV2.exe
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\JustShyvanaV2.pdb
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\EnsoulSharp.Common.dll
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\EnsoulSharp.Sandbox.dll
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\EnsoulSharp.Wrapper.dll
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\SharpDX.Direct3D9.dll
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\SharpDX.dll
+D:\JustShyvanaV2\JustShyvanaV2\bin\x86\Release\log4net.dll
+D:\JustShyvanaV2\JustShyvanaV2\obj\x86\Release\JustShyvanaV2.csproj.CoreCompileInputs.cache
+D:\JustShyvanaV2\JustShyvanaV2\obj\x86\Release\JustShyvanaV2.csproj.CopyComplete
+D:\JustShyvanaV2\JustShyvanaV2\obj\x86\Release\JustShyvanaV2.exe
+D:\JustShyvanaV2\JustShyvanaV2\obj\x86\Release\JustShyvanaV2.pdb
