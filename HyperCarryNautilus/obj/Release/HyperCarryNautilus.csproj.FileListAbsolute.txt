@@ -1,0 +1,13 @@
+D:\Nautilus\Nautilus\bin\Release\HyperCarryNautilus.exe.config
+D:\Nautilus\Nautilus\bin\Release\HyperCarryNautilus.exe
+D:\Nautilus\Nautilus\bin\Release\HyperCarryNautilus.pdb
+D:\Nautilus\Nautilus\bin\Release\EnsoulSharp.Common.dll
+D:\Nautilus\Nautilus\bin\Release\EnsoulSharp.Sandbox.dll
+D:\Nautilus\Nautilus\bin\Release\EnsoulSharp.Wrapper.dll
+D:\Nautilus\Nautilus\bin\Release\SharpDX.Direct3D9.dll
+D:\Nautilus\Nautilus\bin\Release\SharpDX.dll
+D:\Nautilus\Nautilus\bin\Release\log4net.dll
+D:\Nautilus\Nautilus\obj\Release\HyperCarryNautilus.csproj.CoreCompileInputs.cache
+D:\Nautilus\Nautilus\obj\Release\HyperCarryNautilus.csproj.CopyComplete
+D:\Nautilus\Nautilus\obj\Release\HyperCarryNautilus.exe
+D:\Nautilus\Nautilus\obj\Release\HyperCarryNautilus.pdb
