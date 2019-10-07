@@ -1,0 +1,14 @@
+D:\Nechrito Riven\bin\Release\Nechrito Riven.exe.config
+D:\Nechrito Riven\bin\Release\Nechrito Riven.exe
+D:\Nechrito Riven\bin\Release\Nechrito Riven.pdb
+D:\Nechrito Riven\bin\Release\EnsoulSharp.Common.dll
+D:\Nechrito Riven\bin\Release\EnsoulSharp.Sandbox.dll
+D:\Nechrito Riven\bin\Release\EnsoulSharp.Wrapper.dll
+D:\Nechrito Riven\bin\Release\SharpDX.Direct3D9.dll
+D:\Nechrito Riven\bin\Release\SharpDX.dll
+D:\Nechrito Riven\bin\Release\log4net.dll
+D:\Nechrito Riven\obj\Release\Nechrito Riven.csprojAssemblyReference.cache
+D:\Nechrito Riven\obj\Release\Nechrito Riven.csproj.CoreCompileInputs.cache
+D:\Nechrito Riven\obj\Release\Nechrito Riven.csproj.CopyComplete
+D:\Nechrito Riven\obj\Release\Nechrito Riven.exe
+D:\Nechrito Riven\obj\Release\Nechrito Riven.pdb

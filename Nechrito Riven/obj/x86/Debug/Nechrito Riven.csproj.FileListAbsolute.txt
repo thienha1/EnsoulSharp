@@ -1,0 +1,15 @@
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\Nechrito Riven.exe.config
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\Nechrito Riven.exe
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\Nechrito Riven.pdb
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\LeagueSharp.Common.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\LeagueSharp.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\SharpDX.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\LeagueSharp.Data.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\clipper_library.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\LeagueSharp.Common.pdb
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Debug\LeagueSharp.Data.pdb
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\obj\x86\Debug\Nechrito Riven.csprojResolveAssemblyReference.cache
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\obj\x86\Debug\Nechrito Riven.exe
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\obj\x86\Debug\Nechrito Riven.pdb

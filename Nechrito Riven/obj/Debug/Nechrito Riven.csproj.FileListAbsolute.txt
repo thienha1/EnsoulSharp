@@ -1,0 +1,29 @@
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\Nechrito Riven.exe.config
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\obj\Debug\Nechrito Riven.csprojResolveAssemblyReference.cache
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\Nechrito Riven.exe
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\Nechrito Riven.pdb
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\LeagueSharp.Common.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\LeagueSharp.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\SharpDX.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\LeagueSharp.Data.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\clipper_library.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\Newtonsoft.Json.dll
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\LeagueSharp.Common.pdb
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\bin\Release\LeagueSharp.Data.pdb
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\obj\Debug\Nechrito Riven.exe
+C:\Users\Nechr\Documents\Visual Studio 2015\Projects\Nechrito Riven\obj\Debug\Nechrito Riven.pdb
+D:\Nechrito Riven\obj\Debug\Nechrito Riven.csprojAssemblyReference.cache
+D:\Nechrito Riven\obj\Debug\Nechrito Riven.csproj.CoreCompileInputs.cache
+D:\Nechrito Riven\obj\Debug\Nechrito Riven.exe
+D:\Nechrito Riven\obj\Debug\Nechrito Riven.pdb
+D:\Nechrito Riven\bin\Release\Nechrito Riven.exe.config
+D:\Nechrito Riven\bin\Release\Nechrito Riven.exe
+D:\Nechrito Riven\bin\Release\Nechrito Riven.pdb
+D:\Nechrito Riven\bin\Release\EnsoulSharp.Common.dll
+D:\Nechrito Riven\bin\Release\EnsoulSharp.Sandbox.dll
+D:\Nechrito Riven\bin\Release\EnsoulSharp.Wrapper.dll
+D:\Nechrito Riven\bin\Release\SharpDX.Direct3D9.dll
+D:\Nechrito Riven\bin\Release\SharpDX.dll
+D:\Nechrito Riven\bin\Release\log4net.dll
+D:\Nechrito Riven\obj\Debug\Nechrito Riven.csproj.CopyComplete
