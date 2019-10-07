@@ -1,0 +1,15 @@
+D:\KoreanVladimir\bin\Release\KoreanVladimir.exe.config
+D:\KoreanVladimir\bin\Release\KoreanVladimir.exe
+D:\KoreanVladimir\bin\Release\KoreanVladimir.pdb
+D:\KoreanVladimir\bin\Release\EnsoulSharp.Common.dll
+D:\KoreanVladimir\bin\Release\EnsoulSharp.Sandbox.dll
+D:\KoreanVladimir\bin\Release\EnsoulSharp.Wrapper.dll
+D:\KoreanVladimir\bin\Release\KoreanCommon.exe
+D:\KoreanVladimir\bin\Release\SharpDX.Direct3D9.dll
+D:\KoreanVladimir\bin\Release\SharpDX.dll
+D:\KoreanVladimir\bin\Release\log4net.dll
+D:\KoreanVladimir\bin\Release\KoreanCommon.pdb
+D:\KoreanVladimir\obj\x86\Release\KoreanVladimir.csproj.CoreCompileInputs.cache
+D:\KoreanVladimir\obj\x86\Release\KoreanVladimir.csproj.CopyComplete
+D:\KoreanVladimir\obj\x86\Release\KoreanVladimir.exe
+D:\KoreanVladimir\obj\x86\Release\KoreanVladimir.pdb
