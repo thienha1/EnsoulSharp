@@ -1,15 +1,14 @@
 D:\KledHighMajorCommodore\bin\Release\KledHighMajorCommodore.exe.config
 D:\KledHighMajorCommodore\bin\Release\KledHighMajorCommodore.exe
 D:\KledHighMajorCommodore\bin\Release\KledHighMajorCommodore.pdb
-D:\KledHighMajorCommodore\bin\Release\EnsoulSharp.Common.dll
 D:\KledHighMajorCommodore\bin\Release\EnsoulSharp.Sandbox.dll
 D:\KledHighMajorCommodore\bin\Release\EnsoulSharp.SDK.dll
 D:\KledHighMajorCommodore\bin\Release\EnsoulSharp.Wrapper.dll
 D:\KledHighMajorCommodore\bin\Release\SharpDX.Direct3D9.dll
 D:\KledHighMajorCommodore\bin\Release\SharpDX.dll
-D:\KledHighMajorCommodore\bin\Release\log4net.dll
-D:\KledHighMajorCommodore\obj\x86\Release\KledHighMajorCommodore.exe.config
 D:\KledHighMajorCommodore\obj\x86\Release\KledHighMajorCommodore.csproj.CoreCompileInputs.cache
 D:\KledHighMajorCommodore\obj\x86\Release\KledHighMajorCommodore.csproj.CopyComplete
 D:\KledHighMajorCommodore\obj\x86\Release\KledHighMajorCommodore.exe
 D:\KledHighMajorCommodore\obj\x86\Release\KledHighMajorCommodore.pdb
+D:\KledHighMajorCommodore\bin\Release\Newtonsoft.Json.dll
+D:\KledHighMajorCommodore\obj\x86\Release\KledHighMajorCommodore.csprojAssemblyReference.cache

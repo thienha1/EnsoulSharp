@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Linq;
 using EnsoulSharp;
-using EnsoulSharp.Common;
-using EnsoulSharp.Common.Data;
+using EnsoulSharp.SDK;
 using System.Collections.Generic;
 using SharpDX;
 using System.Drawing;
+using EnsoulSharp.SDK.MenuUI;
+using EnsoulSharp.SDK.Prediction;
+using EnsoulSharp.SDK.MenuUI.Values;
+using EnsoulSharp.SDK.Utility;
 
 //This is an assembly for the champion Kled. I'd prefer it if you wouldn't copy this code without giving proper credits.
 namespace KledHighMajorCommodore
@@ -14,7 +17,6 @@ namespace KledHighMajorCommodore
     {
         #region Statics
         static Menu Config;
-        static Orbwalking.Orbwalker Orbwalker;
         static Spell Shotgun;
         static Spell FuckYou;
         static Spell Dash;
@@ -26,7 +28,7 @@ namespace KledHighMajorCommodore
         #region Main Entrypoint
         static void Main(string[] args)
         {
-            CustomEvents.Game.OnGameLoad += OnLoad;
+            Game.OnTick += OnLoad;
         }
         #endregion Main Entrypoint
 
@@ -38,9 +40,7 @@ namespace KledHighMajorCommodore
             Printmsg("Assembly Version: 1.2.0.0");
             Printmsg("Successfully Loaded | Have Fun!");
 
-            Config = new Menu("HMC Kled", "Kled", true).SetFontStyle(FontStyle.Bold, SharpDX.Color.Orange); ;
-            Orbwalker = new Orbwalking.Orbwalker(Config.AddSubMenu(new Menu("Orbwalker Settings", "Orbwalker Settings")));
-            TargetSelector.AddToMenu(Config.AddSubMenu(new Menu("Target Selector", "Target Selector")));
+            Config = new Menu("HMC Kled", "Kled", true);
 
             //Spells
             Shotgun = new Spell(SpellSlot.Q, 750);
@@ -49,103 +49,85 @@ namespace KledHighMajorCommodore
             //3500 / 4000 / 4500 
             FuckYou = new Spell(SpellSlot.R, 3500);
 
-            Shotgun.SetSkillshot(0.25f, 80, 3000, false, SkillshotType.SkillshotLine);
-            Trap.SetSkillshot(0.25f, 40, 1800, false, SkillshotType.SkillshotLine);
-            Dash.SetSkillshot(0.25f, 60, 2200, false, SkillshotType.SkillshotLine);
+            Shotgun.SetSkillshot(0.25f, 80, 3000, false, SkillshotType.Line);
+            Trap.SetSkillshot(0.25f, 40, 1800, false, SkillshotType.Line);
+            Dash.SetSkillshot(0.25f, 60, 2200, false, SkillshotType.Line);
 
             //Begin Menu Variables.
-            var combat = Config.AddSubMenu(new Menu("Combat Settings", "Combat Settings"));
-            var killsteal = combat.AddSubMenu(new Menu("Killsteal Settings", "Killsteal Settings"));
-            var farm = Config.AddSubMenu(new Menu("Farm Settings", "Farm Settings"));
-            var lane = farm.AddSubMenu(new Menu("Laneclear Settings", "Laneclear Farm Settings"));
-            var jungle = farm.AddSubMenu(new Menu("Jungleclear Settings", "Jungleclear Settings"));
-            var drawing = Config.AddSubMenu(new Menu("Draw Settings", "Draw Settings"));
-            var dev = Config.AddSubMenu(new Menu("Developer Menu", "Developer Menu"));
-            var credits = Config.AddSubMenu(new Menu("Credits", "Credits"));
+            var combat = Config.Add(new Menu("combat", "Combat Settings"));
+            var killsteal = combat.Add(new Menu("killsteal", "Killsteal Settings"));
+            var farm = Config.Add(new Menu("farm", "Farm Settings"));
+            var lane = farm.Add(new Menu("laneclear", "Laneclear Farm Settings"));
+            var jungle = farm.Add(new Menu("jungleclear", "Jungleclear Settings"));
+            var dev = Config.Add(new Menu("dev", "Developer Menu"));
+            var credits = Config.Add(new Menu("credit", "Credits"));
 
             //Combat
-            combat.AddItem(new MenuItem("blank3", "Kled").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.Orange));
-            combat.AddItem(new MenuItem("Use.Shotgun", "Use Shotgun | Use Q").SetValue(true));
-            combat.AddItem(new MenuItem("Use.ShotgunAntiGapCloser", "Gapclose with Shotgun").SetValue(true));
-            combat.AddItem(new MenuItem("Use.ShotgunGapCloser", "Anti-Gapclose with Shotgun").SetValue(true));
-            combat.AddItem(new MenuItem("blank2", "Skaarl").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.LawnGreen));
-            combat.AddItem(new MenuItem("Use.Trap", "Use Trap | Use Q").SetValue(true));
-            combat.AddItem(new MenuItem("Use.TrapAntiGapCloser", "Anti-Gapclose with Trap").SetValue(true));
-            combat.AddItem(new MenuItem("Use.Dash", "Use Dash | Use E").SetValue(true));
+            combat.Add(new Menu("blank3", "Kled"));
+            combat.Add(new MenuBool("Use.Shotgun", "Use Shotgun | Use Q").SetValue(true));
+            combat.Add(new MenuBool("Use.ShotgunAntiGapCloser", "Gapclose with Shotgun").SetValue(true));
+            combat.Add(new MenuBool("Use.ShotgunGapCloser", "Anti-Gapclose with Shotgun").SetValue(true));
+            combat.Add(new Menu("blank2", "Skaarl"));
+            combat.Add(new MenuBool("Use.Trap", "Use Trap | Use Q").SetValue(true));
+            combat.Add(new MenuBool("Use.TrapAntiGapCloser", "Anti-Gapclose with Trap").SetValue(true));
+            combat.Add(new MenuBool("Use.Dash", "Use Dash | Use E").SetValue(true));
 
-            combat.AddItem(new MenuItem("blank4", "Harass/Mixed Mode").SetFontStyle(System.Drawing.FontStyle.Bold));
-            combat.AddItem(new MenuItem("Use.ShotgunHarass", "Kled: Use Shotgun | Use Q").SetValue(false));
-            combat.AddItem(new MenuItem("Use.TrapHarass", "Skaarl: Use Trap | Use Q").SetValue(true));
+            combat.Add(new Menu("blank4", "Harass/Mixed Mode"));
+            combat.Add(new MenuBool("Use.ShotgunHarass", "Kled: Use Shotgun | Use Q").SetValue(false));
+            combat.Add(new MenuBool("Use.TrapHarass", "Skaarl: Use Trap | Use Q").SetValue(true));
 
-            //combat.AddItem(new MenuItem("blank4", "Offensive Items/Summoners").SetFontStyle(System.Drawing.FontStyle.Bold));
-            //combat.AddItem(new MenuItem("Use.Tiamat", "Use Tiamat").SetValue(true));
-            //combat.AddItem(new MenuItem("Use.Hydra", "Use Titanic/Ravenous Hydra").SetValue(true));
-            //combat.AddItem(new MenuItem("Use.Ignite", "Use Ignite as Finisher").SetValue(true));
+            //combat.Add(new MenuItem("blank4", "Offensive Items/Summoners").SetFontStyle(System.Drawing.FontStyle.Bold));
+            //combat.Add(new MenuItem("Use.Tiamat", "Use Tiamat").SetValue(true));
+            //combat.Add(new MenuItem("Use.Hydra", "Use Titanic/Ravenous Hydra").SetValue(true));
+            //combat.Add(new MenuItem("Use.Ignite", "Use Ignite as Finisher").SetValue(true));
 
-            killsteal.AddItem(new MenuItem("blank9", "Killsteal Settings").SetFontStyle(System.Drawing.FontStyle.Bold));
-            killsteal.AddItem(new MenuItem("blank5", "Kled").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.Orange));
-            killsteal.AddItem(new MenuItem("ks.shotgun", "Use Shotgun | Use Q for KS").SetValue(true));
-            killsteal.AddItem(new MenuItem("blank12", "Skaarl").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.LawnGreen));
-            killsteal.AddItem(new MenuItem("ks.trap", "Use Trap | Use Q for KS").SetValue(true));
-            killsteal.AddItem(new MenuItem("ks.dash", "Use Dash | Use E for KS").SetValue(false));
-            killsteal.AddItem(new MenuItem("blank6", "Misc Settings").SetFontStyle(System.Drawing.FontStyle.Bold));
-            killsteal.AddItem(new MenuItem("disable.ks", "Disable All Killsteal Methods").SetValue(false));
+            killsteal.Add(new Menu("blank9", "Killsteal Settings"));
+            killsteal.Add(new Menu("blank5", "Kled"));
+            killsteal.Add(new MenuBool("ks.shotgun", "Use Shotgun | Use Q for KS").SetValue(true));
+            killsteal.Add(new Menu("blank12", "Skaarl"));
+            killsteal.Add(new MenuBool("ks.trap", "Use Trap | Use Q for KS").SetValue(true));
+            killsteal.Add(new MenuBool("ks.dash", "Use Dash | Use E for KS").SetValue(false));
+            killsteal.Add(new Menu("blank6", "Misc Settings"));
+            killsteal.Add(new MenuBool("disable.ks", "Disable All Killsteal Methods").SetValue(false));
 
             //Lane
-            lane.AddItem(new MenuItem("blank3", "Kled").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.Orange));
-            lane.AddItem(new MenuItem("laneclear.Shotgun", "Use Shotgun | Use Q").SetValue(true));
-            lane.AddItem(new MenuItem("laneclear.Shotgun.count", "[Shotgun] Minions Hit").SetValue(new Slider(4, 8, 1)));
-            lane.AddItem(new MenuItem("blank2", "Skaarl").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.LawnGreen));
-            lane.AddItem(new MenuItem("laneclear.Trap", "Use Trap | Use Q").SetValue(true));
-            lane.AddItem(new MenuItem("laneclear.Trap.count", "[Trap] Minions Hit").SetValue(new Slider(4, 8, 1)));
-            lane.AddItem(new MenuItem("laneclear.Dash", "Use Dash | Use E").SetValue(false));
-            lane.AddItem(new MenuItem("laneclear.Dash.count", "[Dash] Minions Hit").SetValue(new Slider(4, 8, 1)));
+            lane.Add(new Menu("blank3", "Kled"));
+            lane.Add(new MenuBool("laneclear.Shotgun", "Use Shotgun | Use Q").SetValue(true));
+            lane.Add(new MenuSlider("laneclear.Shotgun.count", "[Shotgun] Minions Hit", 4, 8, 1));
+            lane.Add(new Menu("blank2", "Skaarl"));
+            lane.Add(new MenuBool("laneclear.Trap", "Use Trap | Use Q").SetValue(true));
+            lane.Add(new MenuSlider("laneclear.Trap.count", "[Trap] Minions Hit", 4, 8, 1));
+            lane.Add(new MenuBool("laneclear.Dash", "Use Dash | Use E").SetValue(false));
+            lane.Add(new MenuSlider("laneclear.Dash.count", "[Dash] Minions Hit", 4, 8, 1));
 
             //Jungle
-            jungle.AddItem(new MenuItem("blank3", "Kled").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.Orange));
-            jungle.AddItem(new MenuItem("jungleclear.Shotgun", "Use Shotgun | Use Q").SetValue(true));
-            jungle.AddItem(new MenuItem("blank2", "Skaarl").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.LawnGreen));
-            jungle.AddItem(new MenuItem("jungleclear.Trap", "Use Trap | Use Q").SetValue(true));
-            jungle.AddItem(new MenuItem("jungleclear.Dash", "Use Dash | Use E").SetValue(true));
+            jungle.Add(new Menu("blank3", "Kled"));
+            jungle.Add(new MenuBool("jungleclear.Shotgun", "Use Shotgun | Use Q").SetValue(true));
+            jungle.Add(new Menu("blank2", "Skaarl"));
+            jungle.Add(new MenuBool("jungleclear.Trap", "Use Trap | Use Q").SetValue(true));
+            jungle.Add(new MenuBool("jungleclear.Dash", "Use Dash | Use E").SetValue(true));
 
-            //Drawing
-            drawing.AddItem(new MenuItem("blank3", "Kled").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.Orange));
-            drawing.AddItem(new MenuItem("Draw.Shotgun", "Draw Shotgun Range | Draw Q Range").SetValue(new Circle(true, System.Drawing.Color.Gray)));
-            drawing.AddItem(new MenuItem("blank2", "Skaarl").SetFontStyle(System.Drawing.FontStyle.Bold, SharpDX.Color.LawnGreen));
-            drawing.AddItem(new MenuItem("Draw.Trap", "Draw Trap Range | Draw Q Range").SetValue(new Circle(true, System.Drawing.Color.DarkOrange)));
-            drawing.AddItem(new MenuItem("Draw.Dash", "Draw Dash Range | Draw E Range").SetValue(new Circle(true, System.Drawing.Color.Gold)));
-            drawing.AddItem(new MenuItem("blank420", "Misc settings").SetFontStyle(System.Drawing.FontStyle.Bold));
-            drawing.AddItem(new MenuItem("draw.minimap", "Draw R range on Minimap").SetValue(new Circle(true, System.Drawing.Color.Gold)));
-            drawing.AddItem(new MenuItem("disable.draws", "Disable all Drawings").SetValue(false));
-            drawing.AddItem(new MenuItem("CircleThickness", "Circle Thickness").SetValue(new Slider(0, 30, 0)));
 
             //Dev
-            dev.AddItem(new MenuItem("dev.on", "Enable Developer Mode").SetValue(true));
-            dev.AddItem(new MenuItem("dev.chat", "Enable Debug in Chat").SetValue(false));
+            dev.Add(new MenuBool("dev.on", "Enable Developer Mode").SetValue(true));
+            dev.Add(new MenuBool("dev.chat", "Enable Debug in Chat").SetValue(false));
 
             //Credits
-            credits.AddItem(new MenuItem("cred1", "Made By ScienceARK").SetFontStyle(System.Drawing.FontStyle.Bold));
-            credits.AddItem(new MenuItem("cred2", "Playtesting/Menu: LazyMexican"));
+            credits.Add(new Menu("cred1", "Made By ScienceARK"));
+            credits.Add(new Menu("cred2", "Playtesting/Menu: LazyMexican"));
 
             //Config.AddToMainMenu();
 
             Game.OnUpdate += orbwalkerManager;
-            Gapclosers.OnGapcloser += StopDashingAtMeBro;
+            Gapcloser.OnGapcloser += StopDashingAtMeBro;
             Drawing.OnDraw += GottaDrawSpellRanges;
             GameObject.OnCreate += JoustObject;
-            GameObject.OnDelete += JoustObjDelete;
-            Drawing.OnEndScene += EverythingInOneCsFileIsOkayImo; //potato tomato
+            GameObject.OnDelete += JoustObjDelete; //potato tomato
 
         }
         #endregion Menu/OnLoad
 
         #region random shit
-        private static void EverythingInOneCsFileIsOkayImo(EventArgs args)
-        {
-            bool drawMinimapR = Config.Item("draw.minimap").GetValue<Circle>().Active;
-            if (ObjectManager.Player.Level >= 6 && drawMinimapR)
-                Utility.DrawCircle(ObjectManager.Player.Position, FuckYou.Range, Config.Item("draw.minimap").GetValue<Circle>().Color, 2, 30, true); //being obsolete is also okay
-        }
 
         private static void JoustObjDelete(GameObject sender, EventArgs args)
         {
@@ -173,30 +155,7 @@ namespace KledHighMajorCommodore
         private static void GottaDrawSpellRanges(EventArgs args)
         {
 
-            if (Config.Item("disable.draws").GetValue<bool>()) return;
-
-            if (Config.Item("Draw.Shotgun").GetValue<Circle>().Active)
-            {
-                if (Shotgun.Level > 0)
-                    Render.Circle.DrawCircle(ObjectManager.Player.Position, Shotgun.Range, Shotgun.IsReady() ?
-                        Config.Item("Draw.Shotgun").GetValue<Circle>().Color : System.Drawing.Color.Red, Config.Item("CircleThickness").GetValue<Slider>().Value);
-            }
-
-            if (Config.Item("Draw.Trap").GetValue<Circle>().Active)
-            {
-                if (Trap.Level > 0)
-                    Render.Circle.DrawCircle(ObjectManager.Player.Position, Trap.Range, Trap.IsReady() ?
-                        Config.Item("Draw.Trap").GetValue<Circle>().Color : System.Drawing.Color.Red, Config.Item("CircleThickness").GetValue<Slider>().Value);
-            }
-
-            if (Config.Item("Draw.Dash").GetValue<Circle>().Active)
-            {
-                if (Dash.Level > 0)
-                    Render.Circle.DrawCircle(ObjectManager.Player.Position, Dash.Range, Dash.IsReady() ?
-                        Config.Item("Draw.Dash").GetValue<Circle>().Color : System.Drawing.Color.Red, Config.Item("CircleThickness").GetValue<Slider>().Value);
-            }
-
-            var EnemyTarget = TargetSelector.GetTarget(Shotgun.Range, TargetSelector.DamageType.Magical);
+            var EnemyTarget = TargetSelector.GetTarget(Shotgun.Range, DamageType.Magical);
             if (EnemyTarget != null)
             {
 
@@ -205,7 +164,7 @@ namespace KledHighMajorCommodore
                 var Enemypos = Drawing.WorldToScreen(EnemyTarget.Position);
                 var pos = Drawing.WorldToScreen(ObjectManager.Player.Position);
 
-                if (Config.Item("dev.on").GetValue<bool>())
+                if (Config["dev"]["dev.on"].GetValue<MenuBool>().Enabled)
                 {
                     //Remember to remove knockback dot
                     if (EnemyTarget.IsValid && GapClosePos != null)
@@ -229,29 +188,29 @@ namespace KledHighMajorCommodore
         #endregion Drawings
 
         #region AntiGapCloser
-        private static void StopDashingAtMeBro(ActiveGapcloser gapcloser)
+        private static void StopDashingAtMeBro(AIHeroClient sender, Gapcloser.GapcloserArgs args)
         {
-            var UseShotgunAntiGapCloser = Config.Item("Use.ShotgunAntiGapCloser").GetValue<bool>();
-            var UseTrapAntiGapCloser = Config.Item("Use.TrapAntiGapCloser").GetValue<bool>();
-            if (ObjectManager.Player.IsDead || gapcloser.Sender == null)
+            var UseShotgunAntiGapCloser = Config["combat"]["Use.ShotgunAntiGapCloser"].GetValue<MenuBool>().Enabled;
+            var UseTrapAntiGapCloser = Config["combat"]["Use.TrapAntiGapCloser"].GetValue<MenuBool>().Enabled;
+            if (ObjectManager.Player.IsDead || sender == null)
                 return;
 
-            var targetpos = Drawing.WorldToScreen(gapcloser.Sender.Position);
-            if (gapcloser.Sender.IsValidTarget(Shotgun.Range))
+            var targetpos = Drawing.WorldToScreen(sender.Position);
+            if (sender.IsValidTarget(Shotgun.Range))
             {
-                Render.Circle.DrawCircle(gapcloser.Sender.Position, gapcloser.Sender.BoundingRadius,
+                Render.Circle.DrawCircle(sender.Position, sender.BoundingRadius,
                 System.Drawing.Color.DeepPink);
                 Drawing.DrawText(targetpos[0] - 40, targetpos[1] + 20, System.Drawing.Color.DodgerBlue, "GAPCLOSER");
             }
 
-            if (Shotgun.IsReady() && gapcloser.Sender.IsValidTarget(Shotgun.Range) && !Mounted() && UseShotgunAntiGapCloser && gapcloser.End.Distance(ObjectManager.Player.Position) < 350)
+            if (Shotgun.IsReady() && sender.IsValidTarget(Shotgun.Range) && !Mounted() && UseShotgunAntiGapCloser && args.EndPosition.Distance(ObjectManager.Player.Position) < 350)
             {
-                Shotgun.Cast(gapcloser.Sender);
+                Shotgun.Cast(sender);
             }
 
-            if (Trap.IsReady() && gapcloser.Sender.IsValidTarget(Trap.Range) && Mounted() && UseTrapAntiGapCloser && gapcloser.End.Distance(ObjectManager.Player.Position) < 350 )
+            if (Trap.IsReady() && sender.IsValidTarget(Trap.Range) && Mounted() && UseTrapAntiGapCloser && args.EndPosition.Distance(ObjectManager.Player.Position) < 350 )
             {
-                Trap.Cast(gapcloser.Sender);
+                Trap.Cast(sender);
             }
         }
         #endregion AntiGapCloser
@@ -263,19 +222,19 @@ namespace KledHighMajorCommodore
             //Switch orbwalkersmode depending on pressed button, baka.
             switch (Orbwalker.ActiveMode)
             {
-                case Orbwalking.OrbwalkingMode.Combo:
+                case OrbwalkerMode.Combo:
                     FuckEmUp();
                     break;
-                case Orbwalking.OrbwalkingMode.Mixed:
+                case OrbwalkerMode.Harass:
                     SlapTheShitOutOfEm();
                     break;
-                case Orbwalking.OrbwalkingMode.LaneClear:
+                case OrbwalkerMode.LaneClear:
                     KillDemMinions();
                     WhoGoesKledJungle();
                     break;
             }
 
-            if (!Config.Item("disable.ks").GetValue<bool>())
+            if (!Config["killsteal"]["disable.ks"].GetValue<MenuBool>().Enabled)
             {
                 BitchThatWasMyKill();
             }
@@ -364,7 +323,7 @@ namespace KledHighMajorCommodore
         //Combo
         private static void FuckEmUp()
         {
-            var EnemyTarget = TargetSelector.GetTarget(Trap.Range, TargetSelector.DamageType.Magical);
+            var EnemyTarget = TargetSelector.GetTarget(Trap.Range, DamageType.Magical);
             if (EnemyTarget == null) return;
 
             //DashBuff
@@ -382,10 +341,10 @@ namespace KledHighMajorCommodore
             double TrapDmg = TrapDamage(EnemyTarget);
 
             //Menu
-            var UseShotgun = Config.Item("Use.Shotgun").GetValue<bool>();
-            var UseGapShotgun = Config.Item("Use.ShotgunGapCloser").GetValue<bool>();
-            var UseTrap = Config.Item("Use.Trap").GetValue<bool>();
-            var UseDash = Config.Item("Use.Dash").GetValue<bool>();
+            var UseShotgun = Config["combat"]["Use.Shotgun"].GetValue<MenuBool>().Enabled;
+            var UseGapShotgun = Config["combat"]["Use.ShotgunGapCloser"].GetValue<MenuBool>().Enabled;
+            var UseTrap = Config["combat"]["Use.Trap"].GetValue<MenuBool>().Enabled;
+            var UseDash = Config["combat"]["Use.Dash"].GetValue<MenuBool>().Enabled;
 
             if (!Mounted())
             {
@@ -514,7 +473,7 @@ namespace KledHighMajorCommodore
                         }
 
                         //Cast if Killable with E+AA*2 - 2nd dash
-                        if (EnemyTarget.Health < DashDmg + (AADamage * 2) && PlayerDashUp() && UseDash && ObjectManager.Player.Health > EnemyTarget.Health && JoustObj.IsValid && EnemyTarget.Position.Distance(JoustObj.Position) < 100 && EnemyTarget.GetEnemiesInRange(400).Count <= 1)
+                        if (EnemyTarget.Health < DashDmg + (AADamage * 2) && PlayerDashUp() && UseDash && ObjectManager.Player.Health > EnemyTarget.Health && JoustObj.IsValid && EnemyTarget.Position.Distance(JoustObj.Position) < 100 && EnemyTarget.CountEnemyHeroesInRange(400) <= 1)
                         {
                             Dash.Cast(EnemyTarget.Position);
                             Printchat("2nd Dash Cast if Killable with E+AA*2 - 2nd dash");
@@ -522,7 +481,7 @@ namespace KledHighMajorCommodore
 
                         //Cast if killable with E+AA*3 - 2nd Dash + Passive
                         if (EnemyTarget.Health < DashDmg + (AADamage * 3) && PlayerDashUp() && UseDash && KledWOn() 
-                            && JoustObj.IsValid & EnemyTarget.Position.Distance(JoustObj.Position) < 100 && EnemyTarget.Position.Distance(JoustObj.Position) < 100 && EnemyTarget.GetEnemiesInRange(400).Count <= 1)
+                            && JoustObj.IsValid & EnemyTarget.Position.Distance(JoustObj.Position) < 100 && EnemyTarget.Position.Distance(JoustObj.Position) < 100 && EnemyTarget.CountEnemyHeroesInRange(400) <= 1)
                         {
                             Dash.Cast(EnemyTarget.Position);
                             Printchat("Cast if killable with E+AA*3 - 2nd Dash + Passive");
@@ -537,11 +496,11 @@ namespace KledHighMajorCommodore
         #region Killsteal
         private static void BitchThatWasMyKill()
         {
-            var enemies = HeroManager.Enemies.Where(e => e.IsValidTarget(Shotgun.Range) && e != null);
+            var enemies = GameObjects.Enemy.Where(e => e.IsValidTarget(Shotgun.Range) && e != null);
             //Menu
-            var UseShotgun = Config.Item("ks.shotgun").GetValue<bool>();
-            var UseTrap = Config.Item("ks.trap").GetValue<bool>();
-            var UseDash = Config.Item("ks.dash").GetValue<bool>();
+            var UseShotgun = Config["killsteal"]["ks.shotgun"].GetValue<MenuBool>().Enabled;
+            var UseTrap = Config["killsteal"]["ks.trap"].GetValue<MenuBool>().Enabled;
+            var UseDash = Config["killsteal"]["ks.dash"].GetValue<MenuBool>().Enabled;
 
             foreach (var EnemyTarget in enemies)
             {
@@ -579,7 +538,7 @@ namespace KledHighMajorCommodore
         //Mixed
         private static void SlapTheShitOutOfEm()
         {
-            var EnemyTarget = TargetSelector.GetTarget(Trap.Range, TargetSelector.DamageType.Magical);
+            var EnemyTarget = TargetSelector.GetTarget(Trap.Range, DamageType.Magical);
             if (EnemyTarget == null || !EnemyTarget.IsValid) return;
 
             //Prediction
@@ -588,8 +547,8 @@ namespace KledHighMajorCommodore
             var DashPred = Dash.GetPrediction(EnemyTarget).Hitchance >= HitChance.Low;
 
             //Menu
-            var UseShotgun = Config.Item("Use.ShotgunHarass").GetValue<bool>();
-            var UseTrap = Config.Item("Use.TrapHarass").GetValue<bool>();
+            var UseShotgun = Config["combat"]["Use.ShotgunHarass"].GetValue<MenuBool>().Enabled;
+            var UseTrap = Config["combat"]["Use.TrapHarass"].GetValue<MenuBool>().Enabled;
 
 
             if (Mounted())
@@ -610,26 +569,26 @@ namespace KledHighMajorCommodore
         private static void KillDemMinions()
         {
             //Menu
-            var LaneclearShotgun = Config.Item("laneclear.Shotgun").GetValue<bool>();
-            var LaneclearTrap = Config.Item("laneclear.Trap").GetValue<bool>();
-            var LaneclearDash = Config.Item("laneclear.Dash").GetValue<bool>();
+            var LaneclearShotgun = Config["laneclear"]["laneclear.Shotgun"].GetValue<MenuBool>();
+            var LaneclearTrap = Config["laneclear"]["laneclear.Trap"].GetValue<MenuBool>();
+            var LaneclearDash = Config["laneclear"]["laneclear.Dash"].GetValue<MenuBool>();
 
-            var Shotguncount = Config.Item("laneclear.Shotgun.count").GetValue<Slider>();
-            var Trapcount = Config.Item("laneclear.Trap.count").GetValue<Slider>();
-            var Dashcount = Config.Item("laneclear.Dash.count").GetValue<Slider>();
+            var Shotguncount = Config["laneclear"]["laneclear.Shotgun.count"].GetValue<MenuSlider>();
+            var Trapcount = Config["laneclear"]["laneclear.Trap.count"].GetValue<MenuSlider>();
+            var Dashcount = Config["laneclear"]["laneclear.Dash.count"].GetValue<MenuSlider>();
 
             //Shotgun
-            var MinionsShotGunRange = MinionManager.GetMinions(Shotgun.Range, MinionTypes.All, MinionTeam.Enemy).Where(m => m.IsValid
+            var MinionsShotGunRange = GameObjects.GetMinions(Shotgun.Range, MinionTypes.All, MinionTeam.Enemy).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Shotgun.Range).ToList();
             var ShotgunFarmPosition = Shotgun.GetLineFarmLocation(new List<AIBaseClient>(MinionsShotGunRange), Shotgun.Width);
 
             //Trap
-            var MinionsTrapRange = MinionManager.GetMinions(Trap.Range, MinionTypes.All, MinionTeam.Enemy).Where(m => m.IsValid
+            var MinionsTrapRange = GameObjects.GetMinions(Trap.Range, MinionTypes.All, MinionTeam.Enemy).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Trap.Range).ToList();
             var TrapFarmPosition = Trap.GetLineFarmLocation(new List<AIBaseClient>(MinionsTrapRange), Trap.Width);
 
             //Dash
-            var MinionsDashRange = MinionManager.GetMinions(Dash.Range, MinionTypes.All, MinionTeam.Enemy).Where(m => m.IsValid
+            var MinionsDashRange = GameObjects.GetMinions(Dash.Range, MinionTypes.All, MinionTeam.Enemy).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Dash.Range).ToList();
             var DashFarmPosition = Dash.GetLineFarmLocation(new List<AIBaseClient>(MinionsDashRange), Dash.Width);
 
@@ -684,23 +643,23 @@ namespace KledHighMajorCommodore
         {
 
             //Menu
-            var JungleclearShotgun = Config.Item("jungleclear.Shotgun").GetValue<bool>();
-            var JungleclearTrap = Config.Item("jungleclear.Trap").GetValue<bool>();
-            var JungleclearDash = Config.Item("jungleclear.Dash").GetValue<bool>();
+            var JungleclearShotgun = Config["jungleclear"]["jungleclear.Shotgun"].GetValue<MenuBool>();
+            var JungleclearTrap = Config["jungleclear"]["jungleclear.Trap"].GetValue<MenuBool>();
+            var JungleclearDash = Config["jungleclear"]["jungleclear.Dash"].GetValue<MenuBool>();
 
 
             //Shotgun
-            var MinionsShotGunRange = MinionManager.GetMinions(Shotgun.Range, MinionTypes.All, MinionTeam.Neutral).Where(m => m.IsValid
+            var MinionsShotGunRange = GameObjects.GetMinions(Shotgun.Range, MinionTypes.JunglePlant, MinionTeam.All).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Shotgun.Range).ToList().OrderBy(m => m.MaxHealth);
             var ShotgunFarmPosition = Shotgun.GetLineFarmLocation(new List<AIBaseClient>(MinionsShotGunRange), Shotgun.Width);
 
             //Trap
-            var MinionsTrapRange = MinionManager.GetMinions(Trap.Range, MinionTypes.All, MinionTeam.Neutral).Where(m => m.IsValid
+            var MinionsTrapRange = GameObjects.GetMinions(Trap.Range, MinionTypes.JunglePlant, MinionTeam.All).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Trap.Range).ToList().OrderBy(m => m.MaxHealth);
             var TrapFarmPosition = Trap.GetLineFarmLocation(new List<AIBaseClient>(MinionsTrapRange), Trap.Width);
 
             //Dash
-            var MinionsDashRange = MinionManager.GetMinions(Dash.Range, MinionTypes.All, MinionTeam.Neutral).Where(m => m.IsValid
+            var MinionsDashRange = GameObjects.GetMinions(Dash.Range, MinionTypes.JunglePlant, MinionTeam.All).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Dash.Range).ToList().OrderBy(m => m.MaxHealth);
             var DashFarmPosition = Dash.GetLineFarmLocation(new List<AIBaseClient>(MinionsDashRange), Dash.Width);
 
@@ -750,7 +709,7 @@ namespace KledHighMajorCommodore
         #region Chat
         static void Printchat(string message)
         {
-            if (!Config.Item("dev.chat").GetValue<bool>() || !Config.Item("dev.on").GetValue<bool>())
+            if (!Config["dev"]["dev.chat"].GetValue<MenuBool>() || !Config["dev"]["dev.on"].GetValue<MenuBool>())
                 return;
 
             Chat.Print(
@@ -772,24 +731,24 @@ namespace KledHighMajorCommodore
 
         #region DamageCalculations..
 
-        static double ShotgunDamage(AIHeroClient target)
+        static double ShotgunDamage(AIBaseClient target)
         {
             return
-              ObjectManager.Player.CalcDamage(target, Damage.DamageType.Physical,
+              ObjectManager.Player.CalculateDamage(target, DamageType.Physical,
                     new[] { 0, 30, 45, 60, 75, 90 }[Shotgun.Level] + 0.8 * ObjectManager.Player.FlatPhysicalDamageMod);
             
         }
-        static double TrapDamage(AIHeroClient target)
+        static double TrapDamage(AIBaseClient target)
         {
             return
-              ObjectManager.Player.CalcDamage(target, Damage.DamageType.Physical,
+              ObjectManager.Player.CalculateDamage(target, DamageType.Physical,
                     new[] { 0, 25, 50, 75, 100, 125 }[Trap.Level] + 0.6 * ObjectManager.Player.FlatPhysicalDamageMod);
 
         }
-        static double DashDamage(AIHeroClient target)
+        static double DashDamage(AIBaseClient target)
         {
             return
-              ObjectManager.Player.CalcDamage(target, Damage.DamageType.Physical,
+              ObjectManager.Player.CalculateDamage(target, DamageType.Physical,
                     new[] { 0, 25, 45, 70, 95, 120 }[Dash.Level] + 0.6 * ObjectManager.Player.FlatPhysicalDamageMod);
 
         }

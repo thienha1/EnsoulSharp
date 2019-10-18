@@ -32,16 +32,14 @@ C:\Users\Spelfout\Documents\GitHub\EVSharp\KledHighMajorCommodore\obj\x86\Debug\
 D:\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe.config
 D:\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.exe
 D:\KledHighMajorCommodore\bin\Debug\KledHighMajorCommodore.pdb
-D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.Common.dll
 D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.Sandbox.dll
 D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.SDK.dll
 D:\KledHighMajorCommodore\bin\Debug\EnsoulSharp.Wrapper.dll
 D:\KledHighMajorCommodore\bin\Debug\SharpDX.Direct3D9.dll
 D:\KledHighMajorCommodore\bin\Debug\SharpDX.dll
-D:\KledHighMajorCommodore\bin\Debug\log4net.dll
 D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csprojAssemblyReference.cache
-D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.exe.config
 D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csproj.CoreCompileInputs.cache
 D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.csproj.CopyComplete
 D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.exe
 D:\KledHighMajorCommodore\obj\x86\Debug\KledHighMajorCommodore.pdb
+D:\KledHighMajorCommodore\bin\Debug\Newtonsoft.Json.dll

@@ -36,9 +36,6 @@
     <RootNamespace>KledHighMajorCommodore</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EnsoulSharp.Common">
-      <HintPath>..\EnsoulSharp\System\EnsoulSharp.Common.dll</HintPath>
-    </Reference>
     <Reference Include="EnsoulSharp.Sandbox">
       <HintPath>..\EnsoulSharp\System\EnsoulSharp.Sandbox.dll</HintPath>
     </Reference>
