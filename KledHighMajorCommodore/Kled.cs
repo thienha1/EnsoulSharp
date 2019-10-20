@@ -117,8 +117,9 @@ namespace KledHighMajorCommodore
             credits.Add(new Menu("cred2", "Playtesting/Menu: LazyMexican"));
 
             //Config.AddToMainMenu();
+            Config.Attach();
 
-            Game.OnUpdate += orbwalkerManager;
+            
             Gapcloser.OnGapcloser += StopDashingAtMeBro;
             Drawing.OnDraw += GottaDrawSpellRanges;
             GameObject.OnCreate += JoustObject;
