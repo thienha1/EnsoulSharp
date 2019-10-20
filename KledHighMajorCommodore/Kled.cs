@@ -28,12 +28,12 @@ namespace KledHighMajorCommodore
         #region Main Entrypoint
         static void Main(string[] args)
         {
-            Game.OnTick += OnLoad;
+            GameEvent.OnGameLoad += OnLoad;
         }
         #endregion Main Entrypoint
 
         #region Menu/OnLoad
-        static void OnLoad(EventArgs args) //It's not like I wanna initiate your assembly... b-baka
+        static void OnLoad() //It's not like I wanna initiate your assembly... b-baka
         {
             if (ObjectManager.Player.CharacterName != "Kled") return;
 
