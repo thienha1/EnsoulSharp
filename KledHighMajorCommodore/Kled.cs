@@ -649,17 +649,17 @@ namespace KledHighMajorCommodore
 
 
             //Shotgun
-            var MinionsShotGunRange = GameObjects.GetMinions(Shotgun.Range, MinionTypes.JunglePlant, MinionTeam.All).Where(m => m.IsValid
+            var MinionsShotGunRange = GameObjects.GetJungles(Shotgun.Range, JungleType.All, JungleOrderTypes.MaxHealth).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Shotgun.Range).ToList().OrderBy(m => m.MaxHealth);
             var ShotgunFarmPosition = Shotgun.GetLineFarmLocation(new List<AIBaseClient>(MinionsShotGunRange), Shotgun.Width);
 
             //Trap
-            var MinionsTrapRange = GameObjects.GetMinions(Trap.Range, MinionTypes.JunglePlant, MinionTeam.All).Where(m => m.IsValid
+            var MinionsTrapRange = GameObjects.GetJungles(Shotgun.Range, JungleType.All, JungleOrderTypes.MaxHealth).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Trap.Range).ToList().OrderBy(m => m.MaxHealth);
             var TrapFarmPosition = Trap.GetLineFarmLocation(new List<AIBaseClient>(MinionsTrapRange), Trap.Width);
 
             //Dash
-            var MinionsDashRange = GameObjects.GetMinions(Dash.Range, MinionTypes.JunglePlant, MinionTeam.All).Where(m => m.IsValid
+            var MinionsDashRange = GameObjects.GetJungles(Shotgun.Range, JungleType.All, JungleOrderTypes.MaxHealth).Where(m => m.IsValid
             && m.Distance(ObjectManager.Player) < Dash.Range).ToList().OrderBy(m => m.MaxHealth);
             var DashFarmPosition = Dash.GetLineFarmLocation(new List<AIBaseClient>(MinionsDashRange), Dash.Width);
 
