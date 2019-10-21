@@ -1,15 +1,14 @@
 D:\D-Jarvan\bin\Release\D-Jarvan.exe.config
 D:\D-Jarvan\bin\Release\D-Jarvan.exe
 D:\D-Jarvan\bin\Release\D-Jarvan.pdb
-D:\D-Jarvan\bin\Release\EnsoulSharp.Common.dll
 D:\D-Jarvan\bin\Release\EnsoulSharp.Sandbox.dll
 D:\D-Jarvan\bin\Release\EnsoulSharp.SDK.dll
 D:\D-Jarvan\bin\Release\EnsoulSharp.Wrapper.dll
 D:\D-Jarvan\bin\Release\SharpDX.Direct3D9.dll
 D:\D-Jarvan\bin\Release\SharpDX.dll
-D:\D-Jarvan\bin\Release\log4net.dll
-D:\D-Jarvan\obj\x86\Release\D-Jarvan.exe.config
 D:\D-Jarvan\obj\x86\Release\D-Jarvan.csproj.CoreCompileInputs.cache
 D:\D-Jarvan\obj\x86\Release\D-Jarvan.csproj.CopyComplete
 D:\D-Jarvan\obj\x86\Release\D-Jarvan.exe
 D:\D-Jarvan\obj\x86\Release\D-Jarvan.pdb
+D:\D-Jarvan\obj\x86\Release\D-Jarvan.csprojAssemblyReference.cache
+D:\D-Jarvan\bin\Release\Newtonsoft.Json.dll

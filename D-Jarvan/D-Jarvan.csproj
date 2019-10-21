@@ -36,9 +36,6 @@
     <RootNamespace>D_Jarvan</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EnsoulSharp.Common">
-      <HintPath>..\EnsoulSharp\System\EnsoulSharp.Common.dll</HintPath>
-    </Reference>
     <Reference Include="EnsoulSharp.Sandbox">
       <HintPath>..\EnsoulSharp\System\EnsoulSharp.Sandbox.dll</HintPath>
     </Reference>
@@ -55,6 +52,7 @@
       <HintPath>..\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,6 +65,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Damage\Damage.cs" />
+    <Compile Include="Damage\DamageBilgewaterCutlass.cs" />
+    <Compile Include="Damage\DamageBotRK.cs" />
+    <Compile Include="Damage\DamageExtensions.cs" />
+    <Compile Include="Damage\DamageItem.cs" />
+    <Compile Include="Damage\DamageItems.cs" />
+    <Compile Include="Damage\DamageRavenousHydra.cs" />
+    <Compile Include="Damage\DamageTiamat.cs" />
+    <Compile Include="Damage\IDamageItem.cs" />
+    <Compile Include="Damage\IDamageItemMetadata.cs" />
+    <Compile Include="Damage\Intances.cs" />
+    <Compile Include="Damage\ItemDamageType.cs" />
+    <Compile Include="Geometry\Geometries.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
