@@ -1,4 +1,5 @@
 ﻿using EnsoulSharp;
+using EnsoulSharp.SDK;
 
 namespace D_Jarvan.Damage
 {

@@ -30,11 +30,11 @@ namespace D_Jarvan
 
         private static bool _haveulti;
 
-        private static SpellDataInstClient _smiteSlot;
+        private static SpellDataInst _smiteSlot;
 
         private static void Main(string[] args)
         {
-            Game.OnTick += Game_OnGameLoad;
+            Game.OnUpdate += Game_OnGameLoad;
         }
 
         private static void Game_OnGameLoad(EventArgs args)
@@ -178,7 +178,7 @@ namespace D_Jarvan
             //_config.AddToMainMenu();
             _config.Attach();
 
-            Chat.Print("<font color='#881df2'>D-Jarvan by thienha1</font> Loaded.");
+            Game.Print("<font color='#881df2'>D-Jarvan by thienha1</font> Loaded.");
             Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             GameObject.OnCreate += OnCreateObj;
@@ -342,7 +342,7 @@ namespace D_Jarvan
 
         private static void ComboEqr()
         {
-            _player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPosRaw);
+            _player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPos);
             var manacheck = _player.Mana > _player.Spellbook.GetSpell(SpellSlot.Q).ManaCost + _player.Spellbook.GetSpell(SpellSlot.E).ManaCost + _player.Spellbook.GetSpell(SpellSlot.R).ManaCost;
             var t = TargetSelector.GetTarget(_q.Range + _r.Range, DamageType.Magical);
 
@@ -706,13 +706,13 @@ namespace D_Jarvan
         private static void Forest()
         {
             var manacheck = _player.Mana > _player.Spellbook.GetSpell(SpellSlot.Q).ManaCost + _player.Spellbook.GetSpell(SpellSlot.E).ManaCost;
-            _player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPosRaw);
+            _player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPos);
             var target = TargetSelector.GetTarget(_e.Range, DamageType.Magical);
 
             if (_config["forestgump"]["UseEQF"].GetValue<MenuBool>() && _q.IsReady() && _e.IsReady() && manacheck)
             {
-                _e.Cast(Game.CursorPosRaw, Packets());
-                _q.Cast(Game.CursorPosRaw, Packets());
+                _e.Cast(Game.CursorPos, Packets());
+                _q.Cast(Game.CursorPos, Packets());
             }
             if (_config["forestgump"]["UseWF"].GetValue<MenuBool>() && _w.IsReady() && target != null &&
                 _player.Distance(target) < _w.Range)
