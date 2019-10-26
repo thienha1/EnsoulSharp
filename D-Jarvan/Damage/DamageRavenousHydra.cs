@@ -1,4 +1,5 @@
 ﻿using EnsoulSharp;
+using EnsoulSharp.SDK;
 using D_Jarvan.Geometry;
 using System.ComponentModel.Composition;
 

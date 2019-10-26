@@ -1,4 +1,5 @@
 ﻿using EnsoulSharp;
+using EnsoulSharp.SDK;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 

@@ -6,7 +6,6 @@ D:\D-Jarvan\bin\Release\EnsoulSharp.SDK.dll
 D:\D-Jarvan\bin\Release\EnsoulSharp.Wrapper.dll
 D:\D-Jarvan\bin\Release\SharpDX.Direct3D9.dll
 D:\D-Jarvan\bin\Release\SharpDX.dll
-D:\D-Jarvan\obj\x86\Release\D-Jarvan.csproj.CoreCompileInputs.cache
 D:\D-Jarvan\obj\x86\Release\D-Jarvan.csproj.CopyComplete
 D:\D-Jarvan\obj\x86\Release\D-Jarvan.exe
 D:\D-Jarvan\obj\x86\Release\D-Jarvan.pdb
